@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Great+Vibes&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Sura:wght@400;700&family=Suranna&family=Tangerine:wght@400;700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import 'tailwindcss';
+
+
+
+@theme{
+  --breakpoint-*: initial;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 976px;
+
+  --font-playfair: "Playfair Display", "serif";
+  --font-great: "Great Vibes", "serif";
+  --font-sura: "Sura", "serif";
+  --font-suras: "Sura", "sans-serif";
+  --font-suranna: "Suranna", "serif";
+  --font-kanit: "Kanit", "sans-serif";
+  --font-news: "Newsreader", "serif";
+
+}
+
+@custom-variant dark ( &:where(.dark, .dark * ));
+
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  color: transparent; /* Hides arrow symbol */
+}
+
+
+
+/*Hi hun. Something you should note when you come back to this code...
+The ones without tags are for the smaller screens. 
+The ones that say md are for the big screens. 
+Take note so you dont get confused. Cheers hun.*/

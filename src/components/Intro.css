@@ -1,0 +1,22 @@
+.slide-track-first,
+.slide-track-second {
+  animation: scroll-vertical 20s linear infinite;
+}
+
+.slide-track-second {
+  animation-direction: reverse;
+}
+
+.slide-paused {
+  animation-play-state: paused !important;
+  cursor: pointer;
+}
+
+@keyframes scroll-vertical {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-33%);
+  }
+}
