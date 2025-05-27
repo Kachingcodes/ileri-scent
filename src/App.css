@@ -2,6 +2,7 @@
   height: 100%;
   margin: 0;
   overflow-x: hidden;
+  overflow-y: hidden;
   background: linear-gradient(135deg, #000000, #0a0c13, #183bd9);
   background-size: 300% 300%;
   animation: gradientMove 20s ease infinite;
@@ -18,4 +19,10 @@
     background-position: 0% 50%;
   }
 }
+
+::-webkit-scrollbar {
+display: none;
+}
+
+
 
