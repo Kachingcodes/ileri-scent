@@ -22,7 +22,7 @@ const Slider2 = () => {
         src={bottle2}
         className="absolute top-[55%] left-[26%]
         md:top-[38%] md:left-[18%]
-        w-[130px] sm:w-[100px] md:w-[250px]"
+        w-[130px] md:w-[230px]"
         loading="lazy"
       />
 
@@ -30,8 +30,8 @@ const Slider2 = () => {
       <motion.img
         src={flowers1}
         className="absolute top-[53%] left-[6%] 
-        md:top-[34%] md:left-[8%]
-        w-[90px] sm:w-[140px] md:w-[200px]
+        md:top-[34%] md:left-[10%]
+        w-[90px] md:w-[180px]
         opacity-70 drop-shadow-[0_4px_6px_rgba(0,0,0,0.99)]"
         alt="Decorative Flowers"
         loading="lazy"
@@ -47,9 +47,9 @@ const Slider2 = () => {
         <motion.img
         src={flowers2}
         className="absolute top-[78%] left-[54%] 
-        md:top-[76%] md:left-[30%]
-        opacity-70 rotate-342 drop-shadow-[0_4px_6px_rgba(0,0,0,0.99)]
-        w-[100px] sm:w-[110px] md:w-[240px]"
+        md:top-[80%] md:left-[28%]
+        opacity-70 rotate-336 drop-shadow-[0_4px_6px_rgba(0,0,0,0.99)]
+        w-[100px] md:w-[210px]"
         alt="Decorative Flowers"
         loading="lazy"
         animate={{ y: [0, -20, 0] }}
@@ -66,7 +66,7 @@ const Slider2 = () => {
         className="absolute top-[70%] left-[10%] 
         md:top-[64%] md:left-[8%]
         opacity-85 drop-shadow-[0_4px_6px_rgba(0,0,0,0.99)]
-        w-[80px] sm:w-[110px] md:w-[200px]"
+        w-[80px] md:w-[180px]"
         alt="Decorative Flowers"
         loading="lazy"
         />
@@ -77,7 +77,7 @@ const Slider2 = () => {
         className="absolute top-[74%] left-[18%] 
         md:top-[73%] md:left-[13%]
         opacity-85 drop-shadow-[0_4px_6px_rgba(0,0,0,0.99)]
-         w-[80px] sm:w-[110px] md:w-[200px]"
+         w-[80px] md:w-[180px]"
         alt="Decorative Flowers"
         loading="lazy"
         />
