@@ -26,7 +26,7 @@ const goToShop = () => {
 return(
 
   <div className="flex flex-col w-full p-5 items-center justify-center gap-3">
-        <div className="w-60 md:w-full overflow-x-auto">
+        <div className="w-80 md:w-full overflow-x-auto">
           <div className="w-full flex items-center justify-between gap-2 md:gap-8 mt-10 md:mt-20 mb-8">
           
             {/* Previous Two Images */}
