@@ -5,10 +5,10 @@ import Popular from './Popular'
 const Wanted = () => {
 
   return (
-    <div className="w-full flex flex-col p-12 gap-14 text-white 
+    <div className="w-full flex flex-col p-12 gap-12 text-white 
          items-center overflow-hidden relative min-h-screen">
 
-      <h1 className="mt-14 text-center text-3xl sm:text-3xl md:text-5xl font-extrabold tracking-wider font-playfair text-white">
+      <h1 className="mt-10 text-center text-3xl sm:text-3xl md:text-5xl font-extrabold tracking-wider font-playfair text-white">
         MOST WANTED SCENTS
       </h1>
 
@@ -17,7 +17,7 @@ const Wanted = () => {
       </div>
 
       <div>
-        <h1 className="text-3xl sm:text-3xl md:text-5xl tracking-wider text-center font-bold text-[#f8f8f8] font-playfair mt-20">
+        <h1 className="text-3xl sm:text-3xl md:text-5xl tracking-wider text-center font-bold text-[#f8f8f8] font-playfair mt-36">
           MOST POPULAR SCENTS
         </h1>
       </div>
