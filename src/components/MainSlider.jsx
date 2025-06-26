@@ -12,7 +12,7 @@ const MainSlider = () => {
       modules={[Navigation, Pagination, Autoplay]}
       navigation
       pagination={{ clickable: true }}
-      autoplay={{ delay: 80000000 }}
+      autoplay={{ delay: 7000 }}
       loop
       className="w-full h-[100vh]"
     >
