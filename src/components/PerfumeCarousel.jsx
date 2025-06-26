@@ -26,8 +26,8 @@ const goToShop = () => {
 return(
 
   <div className="flex flex-col w-full p-5 items-center justify-center gap-3">
-        <div className="w-90 md:w-full overflow-x-auto">
-          <div className="flex items-center justify-between gap-3 md:gap-8 mt-10 md:mt-20 mb-8">
+        <div className="w-60 md:w-full overflow-x-auto">
+          <div className="w-full flex items-center justify-between gap-2 md:gap-8 mt-10 md:mt-20 mb-8">
           
             {/* Previous Two Images */}
             <div className="relative opacity-40 bg-pink-100/6 border border-rose-300/30 
@@ -86,21 +86,15 @@ return(
 
             {/* Current Image */}
             <div 
-            // key={selected}
-            // initial={{ x: 3, opacity: 0.9 }}
-            // animate={{ x: 0, opacity: 1 }}
-            // exit={{ x: -2, opacity: 0.9 }}
-            // transition={{ duration: 0.2 }}
-
-            className="bg-gradient-to-br from-[#a3b8f8] via-[#a98dbb] to-[#d4af37] 
-            h-66 w-42 
+            className="bg-pink-100/10 border border-[#866f4a]
+            h-66 w-60 
             md:h-72 md:w-60
             rounded-xl pt-20 pb-6 px-4 flex flex-col items-center justify-center transform scale-100 transition duration-500 ease-in-out shadow-xl relative">
               <img
                 className="absolute -top-10 
                         md:-top-11
-                          w-26 sm:w-28 md:w-32
-                          drop-shadow-lg"
+                        w-26 sm:w-28 md:w-32
+                        drop-shadow-lg"
                 src={wantedData[selected].image}
                 alt="Perfume"
                 loading="lazy"
