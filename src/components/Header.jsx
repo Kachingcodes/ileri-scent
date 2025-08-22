@@ -52,7 +52,7 @@ const Header = () => {
 
 
   return (
-    <header className="w-full p-4 md:p-8 text-white relative z-50">
+    <header className="w-full p-4 text-white relative z-50">
       <div className="flex justify-between items-center">
         
         <div className="flex items-center gap-2">
@@ -120,7 +120,7 @@ const Header = () => {
       {isMobileMenuOpen && (
         <div
           ref={mobileMenuRef}
-          className="flex flex-col absolute z-40 top-12 right-2 bg-black dark:bg-white text-white dark:text-black 
+          className="flex flex-col absolute z-40 top-12 right-0 bg-black dark:bg-white text-white dark:text-black 
           rounded-lg mt-4 space-y-1 w-32 items-center justify-end md:hidden"
         >
           <h5
