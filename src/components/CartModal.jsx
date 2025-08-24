@@ -1,110 +1,113 @@
 import React from "react";
 
-const CartModal = ({
-  cart,
-  storeData,
-  removeFromCart,
-  addToCart,
-  closeModal,
-  totalPrice,
-  handlePlaceOrder,
-}) => {
-  const isCartEmpty = Object.keys(cart).length === 0;
+const CartModal = ({ cartItems, setCartItems, closeModal }) => {
+  // Increment item quantity
+  const increment = (index) => {
+    const updatedCart = [...cartItems];
+    updatedCart[index].quantity += 1;
+    setCartItems(updatedCart);
+  };
+
+  // Decrement item quantity (remove if 0)
+  const decrement = (index) => {
+    const updatedCart = [...cartItems];
+    if (updatedCart[index].quantity > 1) {
+      updatedCart[index].quantity -= 1;
+    } else {
+      updatedCart.splice(index, 1); // remove item when qty reaches 0
+    }
+    setCartItems(updatedCart);
+  };
+
+  // Calculate total price
+  const total = cartItems.reduce((acc, item) => {
+    const priceNum = Number(item.price.replace(/[^0-9]/g, ""));
+    return acc + priceNum * item.quantity;
+  }, 0);
+
+  // Generate WhatsApp link
+  const checkout = () => {
+    if (cartItems.length === 0) return;
+    let message = "Hello! I would like to order the following items:\n\n";
+    cartItems.forEach((item) => {
+      message += `${item.name} (${item.option}) x ${item.quantity} - ${item.price}\n`;
+    });
+    message += `\nTotal: ₦${total.toLocaleString()}`;
+    const url = `https://wa.me/YOUR_PHONE_NUMBER?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  };
 
   return (
-    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-200">
-      <div className="bg-white dark:bg-blue-950 text-blue-900 dark:text-white rounded-2xl shadow-xl w-[95%] max-w-2xl p-6 overflow-y-auto max-h-[90vh] relative">
+    <div className="fixed right-0 top-0 w-[30vw] h-screen bg-gray-200 shadow-xl p-6 rounded-l-lg overflow-y-auto z-[60]">
+      <button
+        className="absolute top-4 right-4 text-red-500 font-bold text-lg"
+        onClick={closeModal}
+      >
+        ✕
+      </button>
 
-        {/* X Button */}
-        <button
-          className="absolute top-4 right-4 text-gray-500 hover:text-red-600 text-xl font-bold"
-          onClick={closeModal}
-        >
-          ×
-        </button>
+      <h2 className="text-2xl font-semibold mb-6">Your Cart</h2>
 
-        <h1 className="text-2xl font-bold font-playfair text-center mb-4 text-yellow-600 tracking-wider">
-          YOUR CART
-        </h1>
-
-        {isCartEmpty ? (
-          <p className="text-center text-sm text-gray-500">
-            Your cart is empty
-          </p>
-        ) : (
-          <>
-            <div className="flex justify-between items-center border-b pb-2 mb-4">
-              <h2 className="text-md font-semibold">Item</h2>
-              <h2 className="text-md font-semibold">Quantity</h2>
-            </div>
-
-            {Object.keys(cart).map((id) => {
-              const item = storeData.find(
-                (product) => product.id === parseInt(id)
-              );
-              return item ? (
-                <div
-                  key={id}
-                  className="flex flex-row justify-between items-center border-b py-4 gap-4 md:gap-20"
-                >
-                  <div className="flex-1">
-                    <p className="font-semibold font-sura text-blue-950 dark:text-white">
-                      {item.name}
-                    </p>
-                    <p className="text-sm text-yellow-700">{item.review}</p>
-                    <p className="text-sm text-black font-news font-semibold">
-                      ₦{item.price}
-                    </p>
-                  </div>
-
-                  <div className="overflow-hidden shadow-md/40 shadow-amber-800">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-20 h-full object-cover"
-                    />
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <button
-                      className="bg-gray-400 text-black w-7 h-7 rounded-full hover:bg-red-600 transition"
-                      onClick={() => removeFromCart(item.id)}
-                    >
-                      –
-                    </button>
-                    <span>{cart[id]}</span>
-                    <button
-                      className="bg-green-900 text-white w-7 h-7 rounded-full hover:bg-green-600 transition"
-                      onClick={() => addToCart(item.id)}
-                    >
-                      +
-                    </button>
-                  </div>
+      {cartItems.length === 0 ? (
+        <p className="text-sm text-gray-500">Your cart is empty</p>
+      ) : (
+        <>
+          {cartItems.map((item, index) => (
+            <div
+              key={`${item.name}-${item.option}`}
+              className="flex items-center gap-4 mb-4 border-b pb-4"
+            >
+              <img
+                src={item.image}
+                alt={item.name}
+                className="w-16 h-16 object-cover rounded"
+              />
+              <div className="flex-1">
+                <p className="text-lg font-medium">{item.name}</p>
+                <p className="text-sm text-gray-600">{item.option}</p>
+                <p className="text-base font-semibold">{item.price}</p>
+                <div className="flex items-center gap-2 mt-2">
+                  <button
+                    className="px-2 py-1 bg-gray-300 rounded text-lg"
+                    onClick={() => decrement(index)}
+                  >
+                    -
+                  </button>
+                  <span className="text-lg">{item.quantity}</span>
+                  <button
+                    className="px-2 py-1 bg-gray-300 rounded text-lg"
+                    onClick={() => increment(index)}
+                  >
+                    +
+                  </button>
                 </div>
-              ) : null;
-            })}
-
-            <h3 className="text-lg font-bold font-news text-right text-blue-900 mt-6">
-              Total: ₦{totalPrice}
-            </h3>
-
-            <div className="flex flex-col sm:flex-row justify-between gap-4 mt-6">
-              <button
-                className="w-full sm:w-auto font-sura bg-white border border-blue-900 text-blue-900 py-2 px-4 rounded-full hover:bg-blue-900 hover:text-white transition"
-                onClick={closeModal}
-              >
-                Continue
-              </button>
-              <button
-                className="w-full sm:w-auto font-sura bg-blue-900 text-white py-2 px-4 rounded-full hover:bg-yellow-500 hover:text-blue-900 transition"
-                onClick={handlePlaceOrder}
-              >
-                Checkout
-              </button>
+              </div>
             </div>
-          </>
-        )}
-      </div>
+          ))}
+
+          {/* Total */}
+          <div className="w-full border-t mt-4 pt-4 flex justify-between text-lg font-semibold">
+            <span>Total:</span>
+            <span>₦{total.toLocaleString()}</span>
+          </div>
+
+          {/* Buttons */}
+          <div className="flex gap-4 mt-6">
+            <button
+              className="flex-1 px-4 py-2 bg-gray-400 text-white rounded hover:bg-gray-500 transition-all"
+              onClick={closeModal}
+            >
+              Continue
+            </button>
+            <button
+              className="flex-1 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-all"
+              onClick={checkout}
+            >
+              Checkout
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 };

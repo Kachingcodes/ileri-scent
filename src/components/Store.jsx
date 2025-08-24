@@ -1,157 +1,145 @@
-import React, { useState, useEffect, useRef } from "react";
-import { storeData } from "../data/storeData";
+import React, { useState } from "react";
+import FixedTop from "./FixedTop"; 
+import ProductCard from "./ProductCard"; 
 import CartModal from "./CartModal";
-import PerfumeModal from "./PerfumeModal";
-import ProductCard from "./ProductCard";
 
-const Store = ({ isCartModalOpen, closeModal, openCartModal, searchItem, setCartCount }) => { // added setCartCount
-    const [cart, setCart] = useState(() => {
-        const savedCart = sessionStorage.getItem("cart");
-        return savedCart ? JSON.parse(savedCart) : {};
-    });
+// Import your datasets
+import { maleData } from "../data/maleData";
+import { femaleData } from "../data/femaleData";
+import { unisexData } from "../data/unisexData";
+import { storeData } from "../data/storeData";
 
-    const [selectedScent, setSelectedScent] = useState(null);
-    const [isPerfumeModalOpen, setIsPerfumeModalOpen] = useState(false);
-    const [message, setMessage] = useState("");
+const Store = ({ category }) => {
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedVolume, setSelectedVolume] = useState(""); 
+  const [cartItems, setCartItems] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
-    const modalRef = useRef(null);
+  let products = [];
+  if (category === "MEN") products = maleData;
+  else if (category === "WOMEN") products = femaleData;
+  else if (category === "UNISEX") products = unisexData;
+  else if (category === "DIFFUSER") products = storeData;
 
-    useEffect(() => {
-        sessionStorage.setItem("cart", JSON.stringify(cart));
-    }, [cart]);
+  const openPurchasePanel = (product) => {
+    setSelectedProduct(product);
+    setSelectedVolume("");
+  };
 
-    // keep addToCart the same, just remove setCartCount there
-const addToCart = (id) => {
-    setCart((prevCart) => ({
-        ...prevCart,
-        [id]: (prevCart[id] || 0) + 1,
-    }));
+  const addToCart = () => {
+    if (!selectedVolume) return;
 
-    const item = storeData.find((product) => product.id === id);
-    if (item) {
-        setMessage(`${item.name} added to cart!`);
-        setTimeout(() => setMessage(""), 2000);
-    }
-};
+    const price = selectedVolume === "15ml" ? "₦10,000" :
+                  selectedVolume === "30ml" ? "₦15,000" :
+                  "₦30,000";
 
-// keep removeFromCart the same, just remove setCartCount there
-const removeFromCart = (id) => {
-    setCart((prevCart) => {
-        const updatedCart = { ...prevCart };
-        if (updatedCart[id] > 1) {
-            updatedCart[id] -= 1;
-        } else {
-            delete updatedCart[id];
-        }
-        return updatedCart;
-    });
-};
-
-// 🔴 NEW: sync global cartCount whenever local cart changes
-useEffect(() => {
-    const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
-    setCartCount(totalItems);
-}, [cart, setCartCount]);
-
-
-    const handleClick = (store) => {
-        setSelectedScent(store);
-        setIsPerfumeModalOpen(true);
+    const newItem = {
+      name: selectedProduct.name,
+      image: selectedProduct.image,
+      option: selectedVolume,
+      price,
+      quantity: 1
     };
 
-    const totalPrice = Object.keys(cart).reduce((total, id) => {
-        const item = storeData.find((product) => product.id === Number(id));
-        return total + (item ? item.price * cart[id] : 0);
-    }, 0);
+    setCartItems(prev => [...prev, newItem]);
+    setSelectedVolume("");
+  };
 
-    const filteredItems = storeData.filter((item) =>
-        item.name.toLowerCase().includes(searchItem.toLowerCase()) ||
-        item.review.toLowerCase().includes(searchItem.toLowerCase()) ||
-        item.price.toString().includes(searchItem)   
-    );
+  const volumes = [
+    { label: "15ml", price: "₦10,000" },
+    { label: "30ml", price: "₦15,000" },
+    { label: "50ml", price: "₦30,000" },
+  ];
 
-    const handlePlaceOrder = () => {
-        const phoneNum = "2348168250885";
-        let message = "Order Summary \n\n";
-
-        Object.keys(cart).forEach((id) => {
-            const item = storeData.find((product) => product.id === Number(id));
-            if(item) {
-                const itemTotal = item.price * cart[id];
-                message += ` ${item.name} - ${cart[id]} x ₦${item.price} = ₦${itemTotal}\n`;
-            }
-        });
-
-        message += `\n *Total Price:* ₦${totalPrice}`;
-        message += `\n\n *Please confirm my order!*`;
-        
-        const encodedMessage = encodeURIComponent(message);
-        const url = `https://wa.me/${phoneNum}?text=${encodedMessage}`;
-        window.open(url, "_blank");
-    };
-
-    useEffect(() => {
-        if (isCartModalOpen || isPerfumeModalOpen) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "auto";
-        }
-    
-        return () => {
-            document.body.style.overflow = "auto";
-        };
-    }, [isCartModalOpen, isPerfumeModalOpen]); 
-
-    return (
-        <div className="w-full relative min-h-screen bg-gray-100 p-2 md:p-8 overflow-hidden">
-            {message && 
-                <div className="fixed top-0 right-14 md:right-180 bg-green-600 text-md text-white px-2 py-2 rounded-lg shadow-md transition-opacity duration-300 z-5000">
-                    {message}
-                </div>
-            }
-
-            <div className="px-2 md:px-6 py-4">
-                <div className="gap-5 p-0 md:p-4 grid grid-cols-2 
-                            sm:grid-cols-2 
-                            md:grid-cols-4 
-                            lg:grid-cols-5
-                            mt-32 md:mt-18">
-                    {filteredItems.length > 0 ? (
-                        filteredItems.map((store) => (
-                            <ProductCard 
-                                key={store.id} 
-                                store={store} 
-                                handleClick={handleClick} 
-                                addToCart={addToCart} 
-                            />
-                        ))
-                    ) : (
-                        <p className="col-span-full text-center text-gray-500">No results found</p>
-                    )}
-                </div>
-            </div>
-
-            {isPerfumeModalOpen && (
-                <PerfumeModal 
-                    selectedScent={selectedScent} 
-                    setIsPerfumeModalOpen={setIsPerfumeModalOpen} 
-                    addToCart={addToCart} 
-                />
-            )}
-
-            {isCartModalOpen && (
-                <CartModal 
-                    cart={cart}
-                    storeData={storeData}
-                    removeFromCart={removeFromCart}
-                    addToCart={addToCart}
-                    closeModal={closeModal}
-                    totalPrice={totalPrice}
-                    handlePlaceOrder={handlePlaceOrder}
-                />
-            )}
+  return (
+    <div className="flex w-full gap-2">
+      {/* Left side (80%) */}
+      <div className="w-[80%] h-full bg-gray-100 p-4 overflow-y-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {products.map(item => (
+            <ProductCard
+              key={item.id}
+              store={item}
+              handleClick={() => openPurchasePanel(item)}
+              openPurchasePanel={openPurchasePanel}
+            />
+          ))}
         </div>
-    );
+      </div>
+
+      {/* Right side (20%) */}
+      <div className="w-[20%] sticky top-0 h-screen flex flex-col gap-2">
+        {/* Top */}
+        <div className="h-[30%] bg-black flex items-center justify-center p-2 z-50">
+          <FixedTop 
+            cartCount={cartItems.length} 
+            openModal={() => setIsCartOpen(true)}
+          />
+        </div>
+
+        {/* Bottom */}
+        <div className="h-[70%] bg-gray-100 flex flex-col items-center justify-start p-4 gap-4 overflow-y-auto w-full">
+          {selectedProduct ? (
+            <div className="w-full flex flex-col items-center">
+              <h2 className="font-bold text-lg text-center">{selectedProduct.name}</h2>
+              <img
+                src={selectedProduct.image}
+                alt={selectedProduct.name}
+                className="w-[40%] rounded-lg mt-2"
+              />
+                  
+                <span className="font-semibold text-amber-600 text-lg">PURCHASE DETAILS</span>
+              {/* Volume/Price grid */}
+              <div className="grid grid-cols-2 gap-2 w-full mt-2 text-center">
+                <span className="font-semibold">Volume</span>
+                <span className="font-semibold">Price</span>
+
+                {volumes.map(v => (
+                  <React.Fragment key={v.label}>
+                    <div
+                      className={`col-span-2 grid grid-cols-2 gap-2 p-2 rounded cursor-pointer hover:bg-gray-300 transition-all ${
+                        selectedVolume === v.label
+                          ? "bg-blue-700 text-white"
+                          : "bg-gray-200 text-black"
+                      }`}
+                      onClick={() => setSelectedVolume(v.label)}
+                    >
+                      <span className="font-medium">{v.label}</span>
+                      <span>{v.price}</span>
+                    </div>
+                  </React.Fragment>
+                ))}
+              </div>
+
+              {/* Add to Cart */}
+              <button
+                className={`mt-4 px-4 py-2 rounded-lg transition-all w-full ${
+                  selectedVolume
+                    ? "bg-blue-700 text-white hover:bg-blue-800"
+                    : "bg-gray-400 text-gray-700 cursor-not-allowed"
+                }`}
+                onClick={addToCart}
+                disabled={!selectedVolume}
+              >
+                Add to Cart
+              </button>
+            </div>
+          ) : (
+            <p className="text-sm font-bold">Select a product to see details</p>
+          )}
+        </div>
+      </div>
+
+      {/* Cart Modal */}
+      {isCartOpen && (
+        <CartModal
+          cartItems={cartItems}
+          setCartItems={setCartItems}
+          closeModal={() => setIsCartOpen(false)}
+        />
+      )}
+    </div>
+  );
 };
 
 export default Store;
