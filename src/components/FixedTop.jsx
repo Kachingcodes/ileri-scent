@@ -46,7 +46,7 @@ const FixedTop = ({ openModal, setSearchItem, cartCount }) => {
           </div>
 
           {/* Icons */}
-          <div className="flex flex-row gap-4 md:gap-6 relative mt-2">
+          <div className="flex flex-row gap-6 md:gap-8 relative mt-2">
             <FaHome className="text-xl md:text-2xl cursor-pointer" onClick={goToHome} />
             <div className="relative cursor-pointer" onClick={openModal}>
               <MdAddShoppingCart className="text-xl md:text-2xl" />

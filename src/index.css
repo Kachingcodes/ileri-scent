@@ -27,6 +27,13 @@
   color: transparent; /* Hides arrow symbol */
 }
 
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
+}
 
 
 /*Hi hun. Something you should note when you come back to this code...
