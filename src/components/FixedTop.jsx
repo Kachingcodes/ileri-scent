@@ -7,7 +7,8 @@ import { IoSearchSharp } from "react-icons/io5";
 const FixedTop = ({ openModal, setSearchItem, cartCount }) => {
   const navigate = useNavigate();
   const [input, setInput] = useState("");
-
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  
   const handleSearch = (e) => {
     setInput(e.target.value);
     setSearchItem(e.target.value.toLowerCase());

@@ -77,7 +77,7 @@ const About = () => {
   }, [isVisible, currentIndex, words]);
 
   return (
-    <div className="w-full flex flex-col-reverse md:flex-row text-white p-6 sm:p-10 md:p-22 gap-10 h-[860px] md:h-[700px]" ref={aboutRef}>
+    <div className="w-full flex flex-col-reverse md:flex-row text-white p-6 sm:p-10 md:p-22 gap-10 h-[860px] md:h-[500px]" ref={aboutRef}>
       
       {/* Left Side - Animation */}
       <div className="flex flex-1 mt-16 mb-20 md:mb-0 justify-center items-center relative ">

@@ -14,6 +14,7 @@ const Store = ({ category }) => {
   const [selectedVolume, setSelectedVolume] = useState(""); 
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [searchItem, setSearchItem] = useState("");
 
   let products = [];
   if (category === "MEN") products = maleData;
@@ -51,27 +52,44 @@ const Store = ({ category }) => {
     { label: "50ml", price: "₦30,000" },
   ];
 
+      const filteredProducts = products.filter((item) =>
+    item.name.toLowerCase().includes(searchItem.toLowerCase())
+  );
+
   return (
     <div className="flex flex-col md:flex-row w-full gap-2">
   {/* FixedTop (on small screens only) */}
-  <div className="md:hidden sticky top-0 w-full bg-black flex items-center justify-center p-2 z-50">
+  <div className="md:hidden sticky top-0 w-full bg-black flex flex-col items-center justify-center p-2 z-50">
+
+    <h1 className="text-2xl font-bold text-center tracking-wide font-playfair text-white">
+      {category ? `Now Viewing: ${category}` : "Browse Products"}
+    </h1>
+
     <FixedTop 
       cartCount={cartItems.length} 
       openModal={() => setIsCartOpen(true)}
+      setSearchItem={setSearchItem}
     />
   </div>
 
   {/* Left side (80%) */}
   <div className="w-full md:w-[80%] h-full bg-gray-100 p-4 overflow-y-auto">
+
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {products.map(item => (
+      {filteredProducts.length > 0 ? (
+        filteredProducts.map(item => (
         <ProductCard
           key={item.id}
           store={item}
           handleClick={() => openPurchasePanel(item)}
           openPurchasePanel={openPurchasePanel}
         />
-      ))}
+      )) 
+    ) : (
+    <div className="col-span-full flex justify-center items-center py-10">
+      <p className="text-gray-400 text-lg">No products found</p>
+    </div>
+  )}
     </div>
   </div>
 
@@ -82,6 +100,7 @@ const Store = ({ category }) => {
       <FixedTop 
         cartCount={cartItems.length} 
         openModal={() => setIsCartOpen(true)}
+        setSearchItem={setSearchItem}
       />
     </div>
 

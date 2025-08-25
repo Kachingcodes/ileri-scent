@@ -9,7 +9,17 @@ import Store from "./Store"; // import your Store component
 
 const Categories = () => {
   const [activeCategory, setActiveCategory] = useState(null);
+  const [searchItem, setSearchItem] = useState("");
 
+  const baseStyle =
+    "p-1.5 md:p-3 flex flex-row items-center justify-center gap-2 md:gap-5 rounded-xl w-full cursor-pointer transition";
+
+  const getCategoryStyle = (category) => {
+    return activeCategory === category
+      ? "bg-blue-700 text-white shadow-md scale-105"
+      : "bg-gradient-to-br from-[#e2e8f0] via-[#cd9d18] to-[#c2b68f] hover:scale-105";
+  };
+  
   const card = {
     hiddenUp: { opacity: 0, y: 100 },
     hiddenDown: { opacity: 0, y: -100 },
@@ -27,15 +37,14 @@ const Categories = () => {
   {/* MEN */}
   <motion.div
     className="w-36 md:w-60 h-40 md:h-60 relative flex flex-col items-center justify-end p-2 rounded-2xl shadow-md/60"
-    variants={card}
     initial="hiddenUp"
     whileInView="visible"
     transition={{ delay: 0.5, duration: 0.8 }}
   >
     <img src={men} alt="Men Perfume" className="absolute -top-13 md:-top-20 w-30 md:w-50 h-40 md:h-62" loading="lazy" />
     <div
-      className="bg-gradient-to-br from-[#e2e8f0] via-[#cd9d18] to-[#c2b68f] 
-       p-1.5 md:p-3 flex flex-row items-center justify-center gap-2 md:gap-5 rounded-xl w-full cursor-pointer"
+      className={`bg-gradient-to-br from-[#e2e8f0] via-[#cd9d18] to-[#c2b68f] 
+       p-1.5 md:p-3 flex flex-row items-center justify-center gap-2 md:gap-5 rounded-xl w-full cursor-pointer ${baseStyle} ${getCategoryStyle("MEN")}`}
       onClick={() => setActiveCategory("MEN")}
     >
       <span className="text-lg md:text-2xl font-semibold">MEN</span>
@@ -53,8 +62,8 @@ const Categories = () => {
   >
     <img src={women} alt="Women Perfume" className="absolute -top-16 md:-top-22 w-22 md:w-35 h-44 md:h-62" loading="lazy" />
     <div
-      className="bg-gradient-to-br from-[#e2e8f0] via-[#cd9d18] to-[#c2b68f] 
-        p-1.5 md:p-3 flex flex-row items-center justify-center gap-2 md:gap-5 rounded-xl w-full cursor-pointer"
+      className={`bg-gradient-to-br from-[#e2e8f0] via-[#cd9d18] to-[#c2b68f] 
+        p-1.5 md:p-3 flex flex-row items-center justify-center gap-2 md:gap-5 rounded-xl w-full cursor-pointer${baseStyle} ${getCategoryStyle("WOMEN")}`}
       onClick={() => setActiveCategory("WOMEN")}
     >
       <span className="text-lg md:text-2xl font-semibold">WOMEN</span>
@@ -72,8 +81,8 @@ const Categories = () => {
   >
     <img src={unisex} alt="Unisex Perfume" className="absolute -top-14 md:-top-20 w-32 md:w-46 h-40 md:h-62" loading="lazy" />
     <div
-      className="bg-gradient-to-br from-[#e2e8f0] via-[#cd9d18] to-[#c2b68f] 
-        p-1.5 md:p-3 flex flex-row items-center justify-center gap-2 md:gap-5 rounded-xl w-full cursor-pointer"
+      className={`bg-gradient-to-br from-[#e2e8f0] via-[#cd9d18] to-[#c2b68f] 
+        p-1.5 md:p-3 flex flex-row items-center justify-center gap-2 md:gap-5 rounded-xl w-full cursor-pointer${baseStyle} ${getCategoryStyle("UNISEX")}`}
       onClick={() => setActiveCategory("UNISEX")}
     >
       <span className="text-lg md:text-2xl font-semibold">UNISEX</span>
@@ -91,8 +100,8 @@ const Categories = () => {
   >
     <img src={diffuser} alt="Unisex Perfume" className="absolute -top-25 md:-top-44 w-40 md:w-66" loading="lazy" />
     <div
-      className="bg-gradient-to-br from-[#e2e8f0] via-[#cd9d18] to-[#c2b68f] 
-        p-1.5 md:p-3 flex flex-row items-center justify-center gap-2 md:gap-5 rounded-xl w-full cursor-pointer"
+      className={`bg-gradient-to-br from-[#e2e8f0] via-[#cd9d18] to-[#c2b68f] 
+        p-1.5 md:p-3 flex flex-row items-center justify-center gap-2 md:gap-5 rounded-xl w-full cursor-pointer${baseStyle} ${getCategoryStyle("DIFFUSER")}`}
       onClick={() => setActiveCategory("DIFFUSER")}
     >
       <span className="text-md md:text-2xl font-semibold">DIFFUSERS</span>
@@ -102,13 +111,15 @@ const Categories = () => {
 
 </div>
 
-
-            {/* STORE SECTION */}
-      {activeCategory && (
-        <div className="w-full mt-12">
-          <Store category={activeCategory} />
-        </div>
-      )}
+    {/* STORE SECTION */}
+{activeCategory && (
+  <div className="w-full mt-18">
+    <h2 className="hidden md:flex text-2xl md:text-3xl font-bold mb-4 text-center tracking-wider font-playfair text-black">
+      Now Viewing: {activeCategory}
+    </h2>
+    <Store category={activeCategory} searchItem={searchItem}/>
+  </div>
+)}
 
     </div>
   );
