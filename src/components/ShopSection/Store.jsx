@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import FixedTop from "./FixedTop"; 
-import ProductCard from "./ProductCard"; 
-import CartModal from "./CartModal";
+import FixedTop from "../ShopSection/FixedTop"; 
+import ProductCard from "../ShopSection/ProductCard"; 
+import CartModal from "../ShopSection/CartModal";
 
-// Import your datasets
-import { maleData } from "../data/maleData";
-import { femaleData } from "../data/femaleData";
-import { unisexData } from "../data/unisexData";
-import { storeData } from "../data/storeData";
+// Datasets
+import { maleData } from "../../data/maleData";
+import { femaleData } from "../../data/femaleData";
+import { unisexData } from "../../data/unisexData";
+import { storeData } from "../../data/storeData";
 
 const Store = ({ category }) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -30,8 +30,8 @@ const Store = ({ category }) => {
   const addToCart = () => {
     if (!selectedVolume) return;
 
-    const price = selectedVolume === "15ml" ? "₦10,000" :
-                  selectedVolume === "30ml" ? "₦15,000" :
+    const price = selectedVolume === "30ml" ? "₦10,000" :
+                  selectedVolume === "50ml" ? "₦15,000" :
                   "₦30,000";
 
     const newItem = {
@@ -47,9 +47,9 @@ const Store = ({ category }) => {
   };
 
   const volumes = [
-    { label: "15ml", price: "₦10,000" },
-    { label: "30ml", price: "₦15,000" },
-    { label: "50ml", price: "₦30,000" },
+    { label: "30ml", price: "₦10,000" },
+    { label: "50ml", price: "₦15,000" },
+    { label: "100ml", price: "₦30,000" },
   ];
 
       const filteredProducts = products.filter((item) =>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
-import red1 from "../img/bottles/red1.png"; // Your bottle image
+import red1 from "../../img/bottles/red1.png"; 
+
 
 const About = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

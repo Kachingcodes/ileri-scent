@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Counter from "./Counter";
-import bg3 from '../img/background3.png';
-import bottle2 from '../img/bottles/liquid_desire.png';
-import flowers1 from '../img/gold_flowers.png';
-import flowers2 from '../img/gold_rose3.png';
-import flowers3 from '../img/gold_rose1.png';
+import Counter from "../HomeSection/Counter";
+import bg3 from '../../img/background3.png';
+import bottle2 from '../../img/bottles/liquid_desire.png';
+import flowers1 from '../../img/gold_flowers.png';
+import flowers2 from '../../img/gold_rose3.png';
+import flowers3 from '../../img/gold_rose1.png';
 
 
 

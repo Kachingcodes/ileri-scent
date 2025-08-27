@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import Header from './Header';
-import './Intro.css';
-import intro_right from '../img/bottles/intro_right.jpg';
-import intro_right2 from '../img/bottles/intro_right2.jpg';
-import intro_right3 from '../img/bottles/intro_right3.jpg';
-import intro_right4 from '../img/bottles/intro_right4.jpg';
-import intro_right5 from '../img/bottles/intro_right5.jpg';
-import intro_right6 from '../img/bottles/intro_right6.jpg';
-import intro_right7 from '../img/bottles/intro_right7.jpg';
-import intro_right8 from '../img/bottles/intro_right8.jpg';
-import intro_right9 from '../img/bottles/intro_right9.jpg';
-import black from "../img/bottles/black2.png";
+import Header from '../Header';
+import '../ShopSection/Intro.css';
+import intro_right from '../../img/bottles/intro_right.jpg';
+import intro_right2 from '../../img/bottles/intro_right2.jpg';
+import intro_right3 from '../../img/bottles/intro_right3.jpg';
+import intro_right4 from '../../img/bottles/intro_right4.jpg';
+import intro_right5 from '../../img/bottles/intro_right5.jpg';
+import intro_right6 from '../../img/bottles/intro_right6.jpg';
+import intro_right7 from '../../img/bottles/intro_right7.jpg';
+import intro_right8 from '../../img/bottles/intro_right8.jpg';
+import intro_right9 from '../../img/bottles/intro_right9.jpg';
+import black from "../../img/bottles/black2.png";
 
 
 const Intro = () => {

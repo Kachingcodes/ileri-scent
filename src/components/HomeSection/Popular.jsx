@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import oud_wood2 from "../img/bottles/oud_wood2.png";
-import sensual_sweetness2 from "../img/bottles/sensual_sweetness2.png";
+import oud_wood2 from "../../img/bottles/oud_wood2.png";
+import sensual_sweetness2 from "../../img/bottles/sensual_sweetness2.png";
 
 const Popular = () => {
 
@@ -14,7 +14,7 @@ const Popular = () => {
 
   return (
 
-    <div className="w-full flex flex-col md:flex-row items-center justify-evenly p-10 gap-18 md:gap-40 rounded-xl shadow-md/90">
+    <div className="w-full flex flex-col md:flex-row items-center justify-evenly p-8 gap-18 md:gap-40 rounded-xl shadow-md/90">
             
       {/* Gender Toggle */}
       <div className="flex flex-col items-center text-2xl md:text-3xl gap-5 p-3 font-kanit tracking-wide">

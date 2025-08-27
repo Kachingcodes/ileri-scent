@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import enchanting from "../img/bottles/enchanting.png"; 
+import enchanting from "../../img/bottles/enchanting.png"; 
 
 
 
@@ -19,10 +19,10 @@ const Works = () => {
   };
 
   return (
-    <div className="w-full text-white py-20 relative overflow-hidden">
+    <div className="bg-[#e6deb2] w-full text-[#2E2E2E] py-20 relative overflow-hidden">
 
       <motion.img className="absolute w-70 top-[40%] left-[10%]
-      md:top-[44%] md:left-[42%] opacity-10 md:opacity-80" 
+      md:top-[44%] md:left-[42%] md:opacity-100" 
         loading="lazy"
         src={enchanting} 
         variants={botVariants}
@@ -32,7 +32,7 @@ const Works = () => {
         />         
 
       <div className="text-center mb-20 z-10 relative px-4">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 font-playfair">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-playfair">
           TO GET A BOTTLE
         </h1>
         <p className="text-base sm:text-lg md:text-xl  text-[#d4af37] max-w-xl mx-auto font-suras">

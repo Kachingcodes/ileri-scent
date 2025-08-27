@@ -33,7 +33,7 @@ const CartModal = ({ cartItems, setCartItems, closeModal }) => {
       message += `${item.name} (${item.option}) x ${item.quantity} - ${item.price}\n`;
     });
     message += `\nTotal: ₦${total.toLocaleString()}`;
-    const url = `https://wa.me/YOUR_PHONE_NUMBER?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/2348168250885?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
 

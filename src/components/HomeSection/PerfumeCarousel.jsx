@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { wantedData } from "../data/wantedData";
-import left from "../img/icons/left2.png";
-import right from "../img/icons/right2.png";
+import { wantedData } from "../../data/wantedData";
+import left from "../../img/icons/left2.png";
+import right from "../../img/icons/right2.png";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 
 
@@ -25,7 +25,7 @@ const goToShop = () => {
 
 return(
 
-  <div className="flex flex-col w-full p-5 items-center justify-center gap-3">
+  <div className="flex flex-col w-full p-5 items-center justify-center gap-3 text-[#2E2E2E]">
         <div className="w-80 md:w-full overflow-x-auto">
           <div className="w-full flex items-center justify-between gap-2 md:gap-8 mt-10 md:mt-20 mb-8">
           
@@ -42,12 +42,12 @@ return(
                 loading="lazy"
               />
               <div className="text-center text-sm font-kanit mt-10">
-                <span className="font-semibold text-white">
+                <span className="font-semibold text-[#2E2E2E]">
                   {wantedData[(selected - 2 + wantedData.length) % wantedData.length].name}
                 </span>
-                <p className="text-sm md:text-xs text-[#e0e0e0]">
+                {/* <p className="text-sm md:text-xs text-[#e0e0e0]">
                   {wantedData[(selected - 2 + wantedData.length) % wantedData.length].review}
-                </p>
+                </p> */}
                 <button 
                   onClick={() => navigate("/shop")}
                   className="mt-2 inline-flex gap-2 items-center bg-[#d4af37] text-[#0b0f1c] font-bold py-2 px-4 rounded-full hover:bg-[#a98dbb] hover:text-white transition">
@@ -70,12 +70,12 @@ return(
                 loading="lazy"
               />
               <div className="text-center text-sm font-kanit mt-10">
-                <span className="font-semibold text-white">
+                <span className="font-semibold">
                   {wantedData[(selected - 1 + wantedData.length) % wantedData.length].name}
                 </span>
-                <p className="text-sm md:text-xs text-[#e0e0e0]">
+                {/* <p className="text-sm md:text-xs text-[#e0e0e0]">
                   {wantedData[(selected - 1 + wantedData.length) % wantedData.length].review}
-                </p>
+                </p> */}
                 <button 
                   onClick={() => navigate("/shop")}
                   className="mt-2 inline-flex gap-2 items-center bg-[#d4af37] text-[#0b0f1c] font-bold py-2 px-4 rounded-full hover:bg-[#a98dbb] hover:text-white transition">
@@ -84,12 +84,12 @@ return(
               </div>
             </div>
 
-            {/* Current Image */}
+            {/* Current Image border border-[#12110f] */}
             <div 
-            className="bg-pink-100/10 border border-[#866f4a]
+            className="
             h-66 w-60 
             md:h-72 md:w-60
-            rounded-xl pt-20 pb-6 px-4 flex flex-col items-center justify-center transform scale-100 transition duration-500 ease-in-out shadow-xl relative">
+            rounded-xl pt-20 pb-6 px-4 flex flex-col items-center justify-center transform scale-100 transition duration-500 ease-in-out shadow-md shadow-[#837E65] relative">
               <img
                 className="absolute -top-10 
                         md:-top-11
@@ -103,8 +103,8 @@ return(
               <div className="text-center font-kanit flex flex-col items-center mt-14 md:mt-16">
                 <span className="text:sm
                 md:text-lg 
-                font-bold text-white">{wantedData[selected].name}</span>
-                <p className="text-sm text-[#f0f0f0]">{wantedData[selected].review}</p>
+                font-bold">{wantedData[selected].name}</span>
+                {/* <p className="text-sm text-[#f0f0f0]">{wantedData[selected].review}</p> */}
                 <button 
                 onClick={() => navigate("/shop")}
                 className="mt-3 inline-flex gap-2 bg-[#d4af37] text-[#0b0f1c] font-semibold py-2 px-4 rounded-full hover:bg-[#3f74b1] hover:text-white transition">
@@ -127,12 +127,12 @@ return(
                 loading="lazy"
               />
               <div className="text-center text-sm font-kanit mt-10">
-                <span className="font-semibold text-white">
+                <span className="font-semibold">
                   {wantedData[(selected + 1) % wantedData.length].name}
                 </span>
-                <p className="text-xs text-[#e0e0e0]">
+                {/* <p className="text-xs text-[#e0e0e0]">
                   {wantedData[(selected + 1) % wantedData.length].review}
-                </p>
+                </p> */}
                 <button 
                   onClick={() => navigate("/shop")}
                   className="mt-2 inline-flex gap-2 items-center bg-[#d4af37] text-[#0b0f1c] font-bold py-2 px-4 rounded-full hover:bg-[#a98dbb] hover:text-white transition">
@@ -150,12 +150,12 @@ return(
                 loading="lazy"
               />
               <div className="text-center text-sm font-kanit mt-10">
-                <span className="font-semibold text-white">
+                <span className="font-semibold">
                   {wantedData[(selected + 2 + wantedData.length) % wantedData.length].name}
                 </span>
-                <p className="text-xs text-[#e0e0e0]">
+                {/* <p className="text-xs text-[#e0e0e0]">
                   {wantedData[(selected + 2 + wantedData.length) % wantedData.length].review}
-                </p>
+                </p> */}
                 <button 
                   onClick={() => navigate("/shop")}
                   className="mt-2 inline-flex gap-2 items-center bg-[#d4af37] text-[#0b0f1c] font-bold py-2 px-4 rounded-full hover:bg-[#a98dbb] hover:text-white transition">

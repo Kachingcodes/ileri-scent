@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Counter from "./Counter";
-import bg2 from '../img/background2.png';
-import bottle2 from '../img/bottles/oud_wood2.png';
-import flowers1 from '../img/white1.png';
-import flowers2 from '../img/white2.png';
-import flowers3 from '../img/pink_roses2.png';
-import flowers4 from '../img/pink_roses3.png';
+import Counter from "../HomeSection/Counter";
+import bg2 from '../../img/background2.png';
+import bottle2 from '../../img/bottles/oud_wood2.png';
+import flowers1 from '../../img/white1.png';
+import flowers2 from '../../img/white2.png';
+import flowers3 from '../../img/pink_roses2.png';
+import flowers4 from '../../img/pink_roses3.png';
 
 
 const Slider2 = () => {

@@ -4,14 +4,14 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Analytics } from "@vercel/analytics/react";
-import Body from "./components/Body";
-import Wanted from "./components/Wanted";
-import Works from "./components/Works";
-import About from "./components/About";
+import Body from "./components/HomeSection/Body";
+import Wanted from "./components/HomeSection/Wanted";
+import Works from "./components/HomeSection/Works";
+import About from "./components/HomeSection/About";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Reviews from "./components/Reviews";
-import Shop from './components/Shop'
+import Shop from './components/ShopSection/Shop'
 
 function App() {
 
@@ -30,7 +30,7 @@ function App() {
               <Wanted />
               <Works />
               <About />
-               <Footer />  
+              <Footer />  
               
             </div>
           }

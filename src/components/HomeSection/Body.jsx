@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
-import Header from "./Header";
-import MainSlider from './MainSlider'
+import Header from "../Header";
+import MainSlider from '../Sliders/MainSlider'
 
 
 const Body = () => {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'; 
 import Intro from './Intro';
 import Categories from './Categories';
-import Footer from './Footer';
+import Footer from '../Footer';
 
 const Shop = () => {
 

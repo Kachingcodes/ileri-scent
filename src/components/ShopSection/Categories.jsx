@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { IoArrowDownCircleOutline } from "react-icons/io5";
-import men from "../img/bottles/men.png";
-import women from "../img/bottles/women.png";
-import unisex from "../img/bottles/unisex.png";
-import diffuser from "../img/bottles/diffuser2.png";
-import Store from "./Store"; // import your Store component
+import men from "../../img/bottles/men.png";
+import women from "../../img/bottles/women.png";
+import unisex from "../../img/bottles/unisex.png";
+import diffuser from "../../img/bottles/diffuser2.png";
+import Store from "./Store"; 
 
 const Categories = () => {
   const [activeCategory, setActiveCategory] = useState(null);
