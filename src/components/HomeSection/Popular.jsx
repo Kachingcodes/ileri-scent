@@ -14,21 +14,21 @@ const Popular = () => {
 
   return (
 
-    <div className="w-full bg-[#e6e1de] flex flex-col items-center justify-evenly p-8 gap-4 md:gap-10">
+    <div className="w-full bg-[#e6e1de] dark:bg-[#151515] flex flex-col items-center justify-evenly p-8 gap-4 md:gap-10 text-black dark:text-white">
       
       <div>
-        <h1 className="text-3xl sm:text-3xl md:text-5xl tracking-wider text-center font-bold font-playfair mt-2">
+        <h1 className="text-2xl sm:text-2xl md:text-4xl tracking-wider text-center font-bold font-playfair mt-2">
           MOST POPULAR SCENTS
         </h1>
       </div>
 
       <div className="flex flex-col md:flex-row items-center justify-evenly p-4 gap-4 md:gap-8 rounded-xl shadow-md/90">
       {/* Gender Toggle */}
-        <div className="flex flex-col items-center text-2xl md:text-3xl gap-5 p-3 font-kanit tracking-wide">
+        <div className="flex flex-col items-center text-lg md:text-xl gap-5 p-3 font-kanit tracking-wide">
 
           {["MALE", "FEMALE"].map((gender) => {
             const isActive = selectedGender === gender;
-            const activeColor = gender === "MALE" ? "text-amber-600" : "text-black";
+            const activeColor = gender === "MALE" ? "text-amber-600" : "";
             const hoverColor = gender === "MALE" ? "hover:text-amber-600" : "hover:text-[#e4c14a]";
             
             return (
@@ -36,7 +36,7 @@ const Popular = () => {
                 key={gender}
                 onClick={() => setSelectedGender(gender)}
                 className={`cursor-pointer relative transition duration-500 ease-in-out 
-                  ${isActive ? activeColor + " scale-105" : "text-black " + hoverColor}`}
+                  ${isActive ? activeColor + " scale-105" : " " + hoverColor}`}
               >
                 {gender} SCENT
                 {isActive && (
@@ -52,7 +52,7 @@ const Popular = () => {
         </div>
 
         {/* Bottle Image */}
-        <div className="relative w-60 h-60 border-2 border-[#d4af37]/20 rounded-3xl shadow-lg transition duration-500 hover:shadow-[#2c2a24]">
+        <div className="relative w-60 h-60 rounded-3xl shadow-lg transition duration-500 hover:shadow-[#2c2a24] dark:shadow-[#a48426]">
           <AnimatePresence mode="wait">
             <motion.img
               key={selectedGender}

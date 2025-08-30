@@ -31,12 +31,12 @@ const goToShop = () => {
 
 return(
 
-  <div className="flex flex-col w-full p-5 items-center justify-center gap-3 text-[#2E2E2E]">
+  <div className="flex flex-col w-full p-2 items-center justify-center text-[#2E2E2E] dark:text-[#efe9e9]">
         <div className="w-80 md:w-full overflow-x-auto">
           <div className="w-full flex items-center justify-between gap-2 md:gap-14 mt-10 md:mt-20 mb-8">
 
             {/* Previous Two Images */}
-            <div className="relative opacity-30 shadow-md shadow-[#2c2a24]
+            <div className="relative opacity-30 shadow-md shadow-[#2c2a24] dark:shadow-[#554617]
               h-52 w-60 md:w-48 rounded-xl pt-20 pb-6 px-4 flex flex-col items-center justify-center gap-2 transition duration-500 ease-in-out scale-90">
               <img   
                 className="absolute -top-7 
@@ -49,7 +49,7 @@ return(
               />
 
               <div className="text-center text-sm font-kanit mt-10">
-                <span className="font-semibold text-[#2E2E2E]">
+                <span className="font-semibold">
                   {wantedData[(selected - 2 + wantedData.length) % wantedData.length].name}
                 </span>
 
@@ -62,7 +62,7 @@ return(
             </div>
 
             {/* Previous Image */}
-            <div className="relative opacity-60 shadow-md shadow-[#2c2a24] 
+            <div className="relative opacity-60 shadow-md shadow-[#2c2a24] dark:shadow-[#554617]
             h-60 w-40
             md:h-62 md:w-48
             rounded-xl pt-20 pb-6 px-4 flex flex-col items-center justify-center gap-2 transition duration-500 ease-in-out scale-90">
@@ -89,7 +89,7 @@ return(
 
             {/* Current Image border border-[#12110f] */}
             <div className="h-66 w-60 md:h-72 md:w-60
-            rounded-xl pt-20 pb-6 px-4 flex flex-col items-center justify-center transform scale-100 transition duration-500 ease-in-out shadow-md shadow-[#2c2a24] relative">
+            rounded-xl pt-20 pb-6 px-4 flex flex-col items-center justify-center transform scale-100 transition duration-500 ease-in-out shadow-md shadow-[#2c2a24] dark:shadow-[#d8b447] relative">
               
               {/* INFO ICON */}
                 <div
@@ -103,7 +103,7 @@ return(
               </div>
               {/* INFO MODAL */}
                 {showInfo && (
-                <div className="absolute top-0 right-0 z-10 bg-[#e8d6be] text-black text-md 
+                <div className="absolute top-0 right-0 z-10 bg-[#e8d6be] dark:bg-[black] text-black dark:text-white text-md 
                             p-3 rounded-lg shadow-lg w-full max-h-60 md:max-h-full overflow-y-auto"
                 >
                     <p className="p-2 md:p-3">{wantedData[selected].notes}</p>
@@ -127,7 +127,7 @@ return(
             </div>
 
             {/* Next Image */}
-            <div className="relative opacity-60 shadow-md shadow-[#2c2a24]
+            <div className="relative opacity-60 shadow-md shadow-[#2c2a24] dark:shadow-[#554617]
               h-60 w-40 md:h-62 md:w-48 
               rounded-xl pt-20 pb-6 px-4 flex flex-col items-center justify-center gap-2 transition duration-500 ease-in-out scale-90">
               <img
@@ -152,7 +152,7 @@ return(
             </div>
 
             {/* Next Two Images */}
-            <div className="relative opacity-30 h-52 w-48 rounded-xl pt-20 pb-6 px-4 flex flex-col items-center justify-center gap-2 transition duration-500 ease-in-out scale-90 shadow-md shadow-[#2c2a24]">
+            <div className="relative opacity-30 h-52 w-48 rounded-xl pt-20 pb-6 px-4 flex flex-col items-center justify-center gap-2 transition duration-500 ease-in-out scale-90 shadow-md shadow-[#2c2a24] dark:shadow-[#554617]">
               <img
                 className="absolute -top-7 w-23 drop-shadow-lg"
                 src={wantedData[(selected + 2 + wantedData.length) % wantedData.length].image}
