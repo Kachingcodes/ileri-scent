@@ -78,53 +78,55 @@ const About = () => {
   }, [isVisible, currentIndex, words]);
 
   return (
-    <div className="w-full flex flex-col-reverse md:flex-row text-white p-6 sm:p-10 md:p-22 gap-10 h-[860px] md:h-[500px]" ref={aboutRef}>
-      
-      {/* Left Side - Animation */}
-      <div className="flex flex-1 mt-16 mb-20 md:mb-0 justify-center items-center relative ">
-        <div
-          ref={rotatingCircleRef}
-          className="absolute rounded-full  border-2 border-[#d4af37] w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px] animate-spin-slow bg-gradient-to-br from-[#0057b7] via-[#91a1cb] to-[#2f20d7]"
-        ></div>
+    <section id="about">
+      <div className="w-full flex bg-[#f5f1ef] dark:bg-[#151515] flex-col-reverse md:flex-row text-black dark:text-white p-4 gap-10 h-[860px] md:h-[500px]" ref={aboutRef}>
+        
+        {/* Left Side - Animation */}
+        <div className="flex flex-1 mt-16 mb-20 md:mb-0 justify-center items-center relative ">
+          <div
+            ref={rotatingCircleRef}
+            className="absolute rounded-full  border-2 border-[#d4af37] w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px] 
+              animate-spin-slow dark:bg-gradient-to-br dark:from-[#8f7725] dark:via-[#f6e27a] dark:to-[#c49a3b] bg-gradient-to-tr from-[#5a4310] via-[#d4af37] to-[#8a6d1c]"
+          ></div>
 
-        <div className="absolute rounded-full border-2 border-[#d4af37] w-[100px] h-[100px] sm:w-[100px] sm:h-[100px] md:w-[140px] md:h-[140px]"></div>
+          <div className="absolute rounded-full border-2 border-[#d4af37] w-[100px] h-[100px] sm:w-[100px] sm:h-[100px] md:w-[140px] md:h-[140px]"></div>
 
-        <div className="relative z-10">
-          <img src={red1} alt="Bottle" className="w-13 h-18 sm:w-13 sm:h-20 md:w-20 md:h-28" loading="lazy" />
+          <div className="relative z-10">
+            <img src={red1} alt="Bottle" className="w-13 h-18 sm:w-13 sm:h-20 md:w-20 md:h-28" loading="lazy" />
+          </div>
+
+          {/* Circular Text Animation */}
+          <motion.div
+            className="absolute z-20 font-news ml-7 md:ml-1 text-sm md:text-md dark:text-[#f7f8f5]"
+            variants={textVariants}
+            initial="hidden"
+            animate={isVisible ? "visible" : "hidden"}
+            transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
+          >
+            {["Elegant", "Woody", "Irresistible", "Musky", "Sensual", "Timeless", "Enchanting", "Romantic"].map((text, index) => (
+              <motion.div
+                key={index}
+                custom={{ angle: (index * (2 * Math.PI)) / 8 }}
+                className="circle-text-item absolute"
+                variants={singleTextVariants}
+              >
+                {text}
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
 
-        {/* Circular Text Animation */}
-        <motion.div
-          className="absolute z-20 font-news ml-7 md:ml-1 text-xs md:text-sm text-[#f7f8f5]"
-          variants={textVariants}
-          initial="hidden"
-          animate={isVisible ? "visible" : "hidden"}
-          transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-        >
-          {["Elegant", "Woody", "Irresistible", "Musky", "Sensual", "Timeless", "Enchanting", "Romantic"].map((text, index) => (
-            <motion.div
-              key={index}
-              custom={{ angle: (index * (2 * Math.PI)) / 8 }}
-              className="circle-text-item absolute"
-              variants={singleTextVariants}
-            >
-              {text}
-            </motion.div>
-          ))}
-        </motion.div>
+        {/* Right Side - Text */}
+        <div className="md:mt-28 flex-1 px-4 sm:px-8">
+          <h1 className="text-2xl sm:text-3xl md:text-3xl font-bold font-playfair lg:text-right sm:text-center mb-4">
+            ABOUT US
+          </h1>
+          <p className="bg-[#1a1a1a] hover:shadow-[#deac69] p-4 sm:p-6 rounded-2xl font-news text-sm sm:text-base md:text-lg leading-relaxed text-white/80 shadow-md border border-[#d4af37]/20">
+            {displayText}
+          </p>
+        </div>
       </div>
-
-      {/* Right Side - Text */}
-      <div className="mt-10 md:mt-28 flex-1 px-4 sm:px-8">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold font-playfair lg:text-right sm:text-center
-        text-white">
-          ABOUT US
-        </h1>
-        <p className="bg-[#1a1a1a] mt-10 hover:shadow-[0_0_20px_#d4af37]/80 p-4 sm:p-6 rounded-2xl font-suras text-sm sm:text-base md:text-lg leading-relaxed text-white/80 shadow-md border border-[#d4af37]/20">
-          {displayText}
-        </p>
-      </div>
-    </div>
+    </section>
   );
 };
 

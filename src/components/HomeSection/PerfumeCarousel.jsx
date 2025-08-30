@@ -32,12 +32,12 @@ const goToShop = () => {
 return(
 
   <div className="flex flex-col w-full p-2 items-center justify-center text-[#2E2E2E] dark:text-[#efe9e9]">
-        <div className="w-80 md:w-full overflow-x-auto">
-          <div className="w-full flex items-center justify-between gap-2 md:gap-14 mt-10 md:mt-20 mb-8">
+        <div className="w-[80%] md:w-full overflow-x-auto">
+          <div className="w-full flex items-center justify-between gap-6 md:gap-14 mt-10 md:mt-20 mb-8">
 
             {/* Previous Two Images */}
-            <div className="relative opacity-30 shadow-md shadow-[#2c2a24] dark:shadow-[#554617]
-              h-52 w-60 md:w-48 rounded-xl pt-20 pb-6 px-4 flex flex-col items-center justify-center gap-2 transition duration-500 ease-in-out scale-90">
+            <div className="relative hidden opacity-30 shadow-md shadow-[#2c2a24] dark:shadow-[#554617]
+              h-52 w-60 md:w-48 rounded-xl pt-20 pb-6 px-4 md:flex flex-col items-center justify-center gap-2 transition duration-500 ease-in-out scale-90">
               <img   
                 className="absolute -top-7 
                 md:-top-7
@@ -48,8 +48,8 @@ return(
                 loading="lazy"
               />
 
-              <div className="text-center text-sm font-kanit mt-10">
-                <span className="font-semibold">
+              <div className="text-center text-sm mt-10">
+                <span className="font-semibold font-news">
                   {wantedData[(selected - 2 + wantedData.length) % wantedData.length].name}
                 </span>
 
@@ -74,8 +74,8 @@ return(
                 alt="Perfume"
                 loading="lazy"
               />
-              <div className="text-center text-sm font-kanit mt-10">
-                <span className="font-semibold">
+              <div className="text-center text-sm mt-10">
+                <span className="font-semibold font-news">
                   {wantedData[(selected - 1 + wantedData.length) % wantedData.length].name}
                 </span>
 
@@ -116,8 +116,8 @@ return(
                 alt="Perfume" loading="lazy"
               />
 
-              <div className="text-center font-kanit flex flex-col items-center mt-14 md:mt-16">
-                <span className="text:sm md:text-lg font-bold">{wantedData[selected].name}</span>
+              <div className="text-center flex flex-col items-center mt-14 md:mt-16">
+                <span className="text:sm md:text-lg font-news font-bold">{wantedData[selected].name}</span>
                 <button 
                 onClick={() => navigate("/shop")}
                 className="mt-3 inline-flex gap-2 bg-[#d4af37] text-[#0b0f1c] font-semibold py-2 px-4 rounded-full hover:bg-[#f7b124] hover:text-white transition">
@@ -138,8 +138,8 @@ return(
                 alt="Perfume"
                 loading="lazy"
               />
-              <div className="text-center text-sm font-kanit mt-10">
-                <span className="font-semibold">
+              <div className="text-center text-sm mt-10">
+                <span className="font-semibold font-news">
                   {wantedData[(selected + 1) % wantedData.length].name}
                 </span>
 
@@ -152,15 +152,15 @@ return(
             </div>
 
             {/* Next Two Images */}
-            <div className="relative opacity-30 h-52 w-48 rounded-xl pt-20 pb-6 px-4 flex flex-col items-center justify-center gap-2 transition duration-500 ease-in-out scale-90 shadow-md shadow-[#2c2a24] dark:shadow-[#554617]">
+            <div className="relative opacity-30 h-52 w-48 rounded-xl pt-20 pb-6 px-4 hidden md:flex flex-col items-center justify-center gap-2 transition duration-500 ease-in-out scale-90 shadow-md shadow-[#2c2a24] dark:shadow-[#554617]">
               <img
                 className="absolute -top-7 w-23 drop-shadow-lg"
                 src={wantedData[(selected + 2 + wantedData.length) % wantedData.length].image}
                 alt="Perfume"
                 loading="lazy"
               />
-              <div className="text-center text-sm font-kanit mt-10">
-                <span className="font-semibold">
+              <div className="text-center text-sm mt-10">
+                <span className="font-semibold font-news">
                   {wantedData[(selected + 2 + wantedData.length) % wantedData.length].name}
                 </span>
                 <button 

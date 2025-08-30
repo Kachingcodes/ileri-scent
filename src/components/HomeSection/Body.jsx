@@ -7,15 +7,17 @@ import MainSlider from '../Sliders/MainSlider'
 const Body = () => {
 
   return (
-    <div className="relative w-full bg-[#0d0d0d] flex flex-col text-white min-h-full ">
+    <section id="home">
+      <div className="relative w-full bg-[#0d0d0d] flex flex-col text-white min-h-full ">
 
-      <div className="absolute top-0 w-full z-50">
-        <Header/>
+        <div className="absolute top-0 w-full z-50">
+          <Header/>
+        </div>
+
+        <MainSlider/> 
+
       </div>
-
-      <MainSlider/> 
-
-    </div>
+    </section>
   );
 };
 

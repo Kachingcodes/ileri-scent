@@ -12,7 +12,6 @@ const Works = () => {
   };
 
   const botVariants = {
-    hiddenLeft: { opacity: 0, y: -100 },
     hiddenRight: { opacity: 0, y: 100 },
     visible: { opacity: 1, y: 0 },
   };
@@ -21,16 +20,17 @@ const Works = () => {
     <section id="works">
       <div className="bg-[#e8d6be] dark:bg-[#0f0b0b] w-full text-[#2E2E2E] dark:text-white py-12 relative overflow-hidden">
 
-        <motion.img className="absolute w-70 top-[40%] left-[10%]
-        md:top-[44%] md:left-[42%] md:opacity-100" 
+        <motion.img 
+          className="hidden md:block md:absolute w-70 top-[40%] left-[10%]
+                    md:top-[44%] md:left-[42%] md:opacity-100"
           loading="lazy"
           src={enchanting} 
           variants={botVariants}
           initial={{ opacity: 0, y: 100 }}
           whileInView="visible"
           transition={{ delay: 0.5, duration: 0.9 }}
-          />         
-
+        />
+      
         <div className="text-center mb-20 z-10 relative px-4">
           <h1 className="text-2xl sm:text-3xl md:text-3xl font-bold mb-4 font-playfair">
             TO GET A BOTTLE
@@ -46,7 +46,7 @@ const Works = () => {
           {/* Left Steps (1 & 2)  */}
           <div className="flex flex-col gap-12 w-full md:w-1/2 items-start">
             <motion.div
-              className="bg-[rgba(167, 15, 15, 0.9)] dark:bg-[white]/10 backdrop-blur-md p-6 rounded-2xl shadow-lg max-w-sm w-full hover:shadow-[0_0_20px_#d4af37]/80"
+              className="bg-[rgba(167, 15, 15, 0.9)] dark:bg-[white]/4 backdrop-blur-md p-6 rounded-2xl shadow-lg max-w-sm w-full hover:shadow-[0_0_20px_#d4af37]/80"
               variants={stepVariants}
               initial="hiddenLeft"
               whileInView="visible"
@@ -57,7 +57,7 @@ const Works = () => {
             </motion.div>
 
             <motion.div
-              className="bg-opacity-90 mt-5 bg-[rgba(167, 15, 15, 0.9)] backdrop-blur-md p-6 rounded-2xl shadow-lg max-w-sm w-full hover:shadow-[0_0_20px_#d4af37]/80"
+              className="bg-opacity-90 mt-5 bg-[rgba(167, 15, 15, 0.9)] dark:bg-[white]/4 backdrop-blur-md p-6 rounded-2xl shadow-lg max-w-sm w-full hover:shadow-[0_0_20px_#d4af37]/80"
               variants={stepVariants}
               initial="hiddenLeft"
               whileInView="visible"
@@ -71,7 +71,7 @@ const Works = () => {
           {/* Right Steps (3 & 4) */}
           <div className="flex flex-col gap-12 w-full md:w-1/2 items-end text-right">
             <motion.div
-              className="bg-[rgba(167, 15, 15, 0.2)] backdrop-blur-md p-6 rounded-2xl shadow-lg max-w-sm w-full hover:shadow-[0_0_20px_#d4af37]/80"
+              className="bg-[rgba(167, 15, 15, 0.2)] dark:bg-[white]/4 backdrop-blur-md p-6 rounded-2xl shadow-lg max-w-sm w-full hover:shadow-[0_0_20px_#d4af37]/80"
               variants={stepVariants}
               initial="hiddenRight"
               whileInView="visible"
@@ -82,7 +82,7 @@ const Works = () => {
             </motion.div>
 
             <motion.div
-              className="bg-[rgba(167, 15, 15, 0.2)] backdrop-blur-md p-6 rounded-2xl shadow-lg max-w-sm w-full hover:shadow-[0_0_20px_#d4af37]/80"
+              className="bg-[rgba(167, 15, 15, 0.2)] dark:bg-[white]/4 backdrop-blur-md p-6 rounded-2xl shadow-lg max-w-sm w-full hover:shadow-[0_0_20px_#d4af37]/80"
               variants={stepVariants}
               initial="hiddenRight"
               whileInView="visible"

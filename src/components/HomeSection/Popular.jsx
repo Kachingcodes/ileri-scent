@@ -14,12 +14,17 @@ const Popular = () => {
 
   return (
 
-    <div className="w-full bg-[#e6e1de] dark:bg-[#151515] flex flex-col items-center justify-evenly p-8 gap-4 md:gap-10 text-black dark:text-white">
+    <div className="w-full bg-[#e0cbbf] dark:bg-[#151515] flex flex-col items-center justify-evenly p-6 md:p-8 gap-4 md:gap-10 text-black dark:text-white">
       
       <div>
-        <h1 className="text-2xl sm:text-2xl md:text-4xl tracking-wider text-center font-bold font-playfair mt-2">
+        <motion.h1
+          initial={{ opacity: 0, y: 100 }}    
+          whileInView={{ opacity: 1, y: 0 }}   
+          transition={{ duration: 1.1, ease: "easeOut" }}
+          viewport={{ once: true }} 
+           className="text-2xl sm:text-2xl md:text-4xl tracking-wider text-center font-bold font-playfair mt-2">
           MOST POPULAR SCENTS
-        </h1>
+        </motion.h1>
       </div>
 
       <div className="flex flex-col md:flex-row items-center justify-evenly p-4 gap-4 md:gap-8 rounded-xl shadow-md/90">
