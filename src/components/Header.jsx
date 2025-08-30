@@ -95,9 +95,9 @@ const Header = () => {
           {/* MOBILE MENU ICON */}
           <div className="md:hidden z-50" onClick={toggleMobileMenu}>
             {isMobileMenuOpen ? (
-              <FiX size={28} className="text-white cursor-pointer" />
+              <FiX size={28} className="cursor-pointer"/>
             ) : (
-              <FiMenu size={28} className="text-white cursor-pointer" />
+              <FiMenu size={28} className="cursor-pointer"/>
             )}
           </div>
         </div>

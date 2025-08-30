@@ -27,7 +27,6 @@ function App() {
           path="/"
           element={
             <div className="App">
-             
               <Body/>
               <Wanted />
               <Popular/>
