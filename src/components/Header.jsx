@@ -61,9 +61,9 @@ const Header = () => {
         </div>
 
         {/* DESKTOP NAV */}
-        <div className="hidden md:flex gap-8 bg-amber-500 dark:bg-blue-300 p-4 rounded-full items-center">
+        <div className="hidden md:flex gap-8  dark:bg-blue-300 p-4 rounded-full items-center">
           <h5
-            className="text-base font-semibold hover:text-black cursor-pointer"
+            className="text-base font-semibold hover:text-amber-500 cursor-pointer"
             onClick={() => navigate("/")}
           >
             Home
@@ -71,7 +71,7 @@ const Header = () => {
 
           <div className="relative" ref={contactDropdownRef}>
             <h5
-              className="text-base p-2 font-semibold hover:text-black cursor-pointer"
+              className="text-base p-2 font-semibold hover:text-amber-500 cursor-pointer"
               onClick={toggleContactDropdown}
             >
               Contacts
@@ -85,7 +85,7 @@ const Header = () => {
           </div>
 
           <h5
-            className="text-base font-semibold hover:text-black cursor-pointer"
+            className="text-base font-semibold hover:text-amber-500 cursor-pointer"
             onClick={() => navigate("/reviews")}
           >
             Reviews

@@ -10,31 +10,31 @@ export const wantedData = [
   {
     image: cherry,
     name: 'CHERRY MIRAGE',
-    review: "50ml - #15K"
+    notes: "50ml - #15K"
   },
   {
     image: floral_currant,
     name: 'FLORAL CURRANT',
-    review:"50ml - #15K"
+    notes:"50ml - #15K 50ml - #15K 50ml - #15K 50ml - #15K 50ml - #15K 50ml - #15K 50ml - #15K"
   },
   {
     image : liquid_desire,
     name: 'LIQUID DESIRE',
-    review: "50ml - #15K"
+    notes: "50ml - #15K"
   },
   {
     image : oud_wood,
     name: 'OUD WOOD',
-    review:"50ml - #15K"
+    notes:"50ml - #15K"
   },
   {
     image: second_turn,
     name: 'SECOND TURN',
-    review:"50ml - #15K"
+    notes:"50ml - #15K"
   },
   {
     image: sensual_sweetness,
     name: 'SENSUAL SWEETNESS',
-    review:"50ml - #15K"
+    notes:"50ml - #15K"
   }
 ];

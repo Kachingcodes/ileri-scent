@@ -19,7 +19,7 @@ const Works = () => {
   };
 
   return (
-    <div className="bg-[#e6deb2] w-full text-[#2E2E2E] py-20 relative overflow-hidden">
+    <div className="bg-[#e8d6be] w-full text-[#2E2E2E] py-20 relative overflow-hidden">
 
       <motion.img className="absolute w-70 top-[40%] left-[10%]
       md:top-[44%] md:left-[42%] md:opacity-100" 
@@ -35,7 +35,7 @@ const Works = () => {
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-playfair">
           TO GET A BOTTLE
         </h1>
-        <p className="text-base sm:text-lg md:text-xl  text-[#d4af37] max-w-xl mx-auto font-suras">
+        <p className="text-base sm:text-lg md:text-xl  text-[#13120f] max-w-xl mx-auto font-suras">
           Just four quick steps to receive your custom perfume.
         </p>
       </div>
@@ -43,18 +43,17 @@ const Works = () => {
       {/* Steps */}
       <div className="flex flex-col md:flex-row justify-between w-full px-4 md:px-12 lg:px-20 z-10 relative gap-12">
 
-        {/* Left Steps (1 & 2) */}
+        {/* Left Steps (1 & 2) shadow-[0_0_20px_#d4af37]/80 */}
         <div className="flex flex-col gap-12 w-full md:w-1/2 items-start">
           <motion.div
-            className="bg-[rgba(167, 15, 15, 0.9)] backdrop-blur-md p-6 rounded-2xl shadow-lg max-w-sm w-full hover:shadow-[0_0_20px_#d4af37]/80"
+            className="bg-[rgba(167, 15, 15, 0.9)] backdrop-blur-md p-6 rounded-2xl shadow-lg max-w-sm w-full hover:shadow-[#2d2715] "
             variants={stepVariants}
             initial="hiddenLeft"
             whileInView="visible"
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <h1 className="text-2xl sm:text-3xl text-white font-suras">1</h1>
-            <h3 className="text-lg sm:text-xl font-semibold mt-2 mb-1 font-sura text-[#d4af37]">SCENT</h3>
-            <p className="text-sm sm:text-base font-suras bg-[#438199] p-3 rounded-xl">Pick your favorite scent from our luxurious selection.</p>
+            <h1 className="text-2xl sm:text-3xl text-[#2e2d2a] font-suras">1. SCENT</h1>
+            <p className="text-sm sm:text-base font-suras bg-[#d39c44] p-3 rounded-xl">Pick your favorite scent from our luxurious selection.</p>
           </motion.div>
 
           <motion.div
@@ -64,9 +63,8 @@ const Works = () => {
             whileInView="visible"
             transition={{ delay: 1.2, duration: 0.8 }}
           >
-            <h1 className="text-2xl sm:text-3xl text-white font-suras">2</h1>
-            <h3 className="text-lg sm:text-xl font-semibold mt-2 mb-1 font-sura text-[#d4af37]">VOLUME</h3>
-            <p className="text-sm sm:text-base font-suras bg-[#438199] p-3 rounded-xl">Select your preferred volume and bottle style.</p>
+            <h1 className="text-2xl sm:text-3xl text-[#2e2d2a] font-suras">2. VOLUME</h1>
+            <p className="text-sm sm:text-base font-suras bg-[#d39c44] p-3 rounded-xl">Select your preferred volume.</p>
           </motion.div>
         </div>
 
@@ -79,9 +77,8 @@ const Works = () => {
             whileInView="visible"
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <h1 className="text-2xl sm:text-3xl text-white font-suras">3</h1>
-            <h3 className="text-lg sm:text-xl font-semibold mt-2 mb-1 font-sura text-[#d4af37]">PAYMENT</h3>
-            <p className="text-sm sm:text-base font-suras bg-[#438199] p-3 rounded-xl">You’ll be redirected to our WhatsApp shop to make payment.</p>
+            <h1 className="text-2xl sm:text-3xl text-white font-suras">3. PAYMENT</h1>
+            <p className="text-sm sm:text-base font-suras bg-[#d39c44] p-3 rounded-xl">You’ll be redirected to our WhatsApp shop to make payment.</p>
           </motion.div>
 
           <motion.div
@@ -91,9 +88,8 @@ const Works = () => {
             whileInView="visible"
             transition={{ delay: 1.5, duration: 0.8 }}
           >
-            <h1 className="text-2xl sm:text-3xl text-white font-suras">4</h1>
-            <h3 className="text-lg sm:text-xl font-semibold mt-2 mb-1 font-sura text-[#d4af37]">DELIVERY</h3>
-            <p className="text-sm sm:text-base font-suras bg-[#438199] p-3 rounded-xl">Your perfume will arrive within 5 business days.</p>
+            <h1 className="text-2xl sm:text-3xl text-white font-suras">4. DELIVERY</h1>
+            <p className="text-sm sm:text-base font-suras bg-[#d39c44] p-3 rounded-xl">Your perfume will arrive within 5 business days.</p>
           </motion.div>
         </div>
 

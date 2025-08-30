@@ -6,6 +6,7 @@ import 'swiper/css/pagination';
 import { Analytics } from "@vercel/analytics/react";
 import Body from "./components/HomeSection/Body";
 import Wanted from "./components/HomeSection/Wanted";
+import Popular from "./components/HomeSection/Popular";
 import Works from "./components/HomeSection/Works";
 import About from "./components/HomeSection/About";
 import Footer from "./components/Footer";
@@ -28,6 +29,7 @@ function App() {
             <div className="App">
               <Body/>
               <Wanted />
+              <Popular/>
               <Works />
               <About />
               <Footer />  
