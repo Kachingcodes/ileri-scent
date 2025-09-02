@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaGift, FaStar, FaTimes } from "react-icons/fa";
+import { FaGift, FaStar } from "react-icons/fa";
 import pack from "../../img/pack4.jpg"; 
 import pack2 from "../../img/pack2.jpg"; 
 import pack3 from "../../img/pack3.jpg"; 
@@ -51,13 +51,6 @@ const LuxuryExperience = () => {
               transition={{ duration: 0.3 }}
               className="bg-white dark:bg-[#1a1a1a] rounded-2xl shadow-lg max-w-2xl w-full p-8 relative"
             >
-              {/* Close Button */}
-              {/* <button
-                onClick={() => setShowQuiz(false)}
-                className="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white"
-              >
-                <FaTimes size={20} />
-              </button> */}
 
               {/* Quiz Content Placeholder */}
               <FragQuiz onClose={() => setShowQuiz(false)}/>

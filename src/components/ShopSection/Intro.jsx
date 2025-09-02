@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Header from '../Header';
+import ShopHeader from '../ShopSection/ShopHeader';
 import '../ShopSection/Intro.css';
 import intro_right from '../../img/bottles/intro_right.jpg';
 import intro_right2 from '../../img/bottles/intro_right2.jpg';
@@ -20,8 +20,8 @@ const Intro = () => {
   return (
     <div className="relative w-full overflow-hidden z-500">
       
-      <div className='bg-black'>
-        <Header />
+      <div className=''>
+        <ShopHeader/>
       </div>
 
       <div className='flex bg-[white] flex-row items-center justify-evenly h-[700px] md:h-[720px] overflow-hidden'>

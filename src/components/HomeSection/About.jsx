@@ -14,7 +14,7 @@ const textVariants = {
 
 const About = () => {
   return (
-    <section className="bg-white dark:bg-[#0f0b0b] dark:text-white text-gray-800 py-20 px-6">
+    <section className="bg-white dark:bg-[#1b1818] dark:text-white text-gray-800 py-20 px-6" id="about">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         
         {/* About Section */}

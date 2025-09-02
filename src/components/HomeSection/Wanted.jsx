@@ -5,17 +5,17 @@ import PerfumeCarousel from './PerfumeCarousel'
 const Wanted = () => {
 
   return (
-    <section id="popular">
+    <section id="bestseller">
       <div className="bg-[#e8d6be] dark:bg-[#060606] py-6 w-full flex flex-col text-[#2E2E2E] dark:text-white items-center overflow-hidden relative">
 
         <motion.h1
-          className="mt-10 text-center text-2xl sm:text-2xl md:text-4xl font-bold tracking-wide font-playfair"
+          className="mt-10 text-center text-3xl sm:text-2xl md:text-4xl tracking-wide font-playfair"
           initial={{ opacity: 0, y: -100 }}    
           whileInView={{ opacity: 1, y: 0 }}   
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}            
         >
-          BEST SELLERS
+          BESTSELLERS
         </motion.h1>
 
         <div>

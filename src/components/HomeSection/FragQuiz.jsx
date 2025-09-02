@@ -1,5 +1,5 @@
-// FragranceQuiz.js
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaTimes } from "react-icons/fa";
 
@@ -48,50 +48,48 @@ const quizQuestions = [
 
 const resultsMapping = {
   Floral: {
-    perfumes: ["Tom Ford Lost Cherry", "Tommy Girl"],
+    perfumes: ["Fruity Cherry", "Tommy Signature", "Citrus blossom"],
     pairsWellWith: [
-      "Daisy Dream",
-      "Elie Saab Le Parfum",
-      "Lanvin Éclat d’Arpège",
-      "YSL Mon Paris",
+      "Citrus Veil ",
+      "Golden Flair",
+      "Ileri Intense",
+      "Isyrah",
     ],
   },
   Woody: {
-    perfumes: ["Tom Ford Oud Wood", "Gucci Intense Oud"],
+    perfumes: ["Scented Oud", "Smokey Intensive", "Shay Bloom"],
     pairsWellWith: [
-      "Armaf Club de Nuit Intense Man",
-      "Azzaro Wanted by Night",
-      "Bentley for Men Intense",
-      "Montblanc Explorer",
+      "Ileri Bleu",
+      "Leather Man",
+      "Oud Cares",
+      "Velour Oud",
     ],
   },
   Citrus: {
-    perfumes: ["Hugo Boss", "Essential by Lacoste"],
+    perfumes: ["Coded Boss", "Essential d’ileri", "Magnetic rush"],
     pairsWellWith: [
-      "Versace Man Eau Fraîche",
-      "Dolce & Gabbana Light Blue",
-      "CK One",
-      "Paco Rabanne Invictus Aqua",
+      "Clean Sport",
+      "Golden Intense",
+      "Ocean Horizon",
+      "Weekend Petals",
     ],
   },
   Oriental: {
     perfumes: [
-      "Most Wanted (Male)",
-      "Shay Oud",
-      "Scandal",
-      "Olympea",
-      "Armani Code",
+      "Fruity Cherry",
+      "Silken Code",
     ],
     pairsWellWith: [
-      "Spicebomb by Viktor & Rolf",
-      "YSL Black Opium",
-      "Lancome La Nuit Trésor",
-      "Versace Crystal Noir",
+      "Darkly Wanted",
+      "Silk Secret",
+      "Orchid Smoke",
+      "Velour Oud",
     ],
   },
 };
 
 const FragQuiz = ({ onClose }) => {
+  const navigate = useNavigate();
   const [currentQ, setCurrentQ] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [showResult, setShowResult] = useState(false);
@@ -151,6 +149,13 @@ const FragQuiz = ({ onClose }) => {
    const q1Answered = answers[currentQ];
   const q2Answered = answers[currentQ + 1] || currentQ + 1 >= quizQuestions.length;
   const canProceed = q1Answered && q2Answered;
+
+
+
+    const goToShop = () => {
+  navigate("/shop");
+};
+
 
   return (
     <AnimatePresence>
@@ -246,7 +251,9 @@ const FragQuiz = ({ onClose }) => {
                 ))}
               </div>
 
-              <button className="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 dark:hover:bg-[#d39c44]">
+              <button 
+                onClick={() => navigate("/shop")}
+                className="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 dark:hover:bg-[#d39c44]">
                 Discover Your Signature Scent
               </button>
             </div>

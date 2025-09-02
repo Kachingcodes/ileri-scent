@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../img/logo.png";
-import logo_black from "../img/logo_black.png";
+import logo from "../../img/logo.png";
+import logo_black from "../../img/logo_black.png";
 import { GiShoppingCart } from "react-icons/gi";
+import { MdOutlineReviews } from "react-icons/md";
 import { FiMenu, FiX } from "react-icons/fi";
 import { FaMoon, FaSun } from "react-icons/fa";
 
@@ -89,16 +90,16 @@ const scrollToSection = (id) => {
 
           {/* DESKTOP NAV */}
           <div className="hidden md:flex gap-8 items-center absolute left-1/2 transform -translate-x-1/2 cursor-pointer">
-            <h5 className="nav-link hover:text-amber-500" onClick={() => navigate("/")}>Home</h5>
-            <h5 className="nav-link hover:text-amber-500" onClick={() => scrollToSection("popular")}>Popular</h5>
+            <h5 className="nav-link hover:text-amber-500" onClick={() => scrollToSection("home")}>Home</h5>
+            <h5 className="nav-link hover:text-amber-500" onClick={() => scrollToSection("signature")}>Signature</h5>
             <h5 className="nav-link hover:text-amber-500" onClick={() => scrollToSection("works")}>Works</h5>
+            <h5 className="nav-link hover:text-amber-500" onClick={() => scrollToSection("bestseller")}>Bestsellers</h5>
             <h5 className="nav-link hover:text-amber-500" onClick={() => scrollToSection("about")}>About Us</h5>
             <h5 className="nav-link hover:text-amber-500" onClick={() => scrollToSection("contact")}>Contact Us</h5>
-            <h5 className="nav-link hover:text-amber-500" onClick={goToReviews}>Reviews</h5>
           </div>
 
           {/* RIGHT: Shop + Dark Toggle + Mobile Icon */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             {/* SHOP BTN (Desktop) */}
             <div className="btn hidden md:flex p-2 rounded-full">
               <button className="flex items-center text-base" onClick={goToShop}>
@@ -108,6 +109,17 @@ const scrollToSection = (id) => {
                   </div>
                 </div>
                 <span className="ml-2">SHOP</span>
+              </button>
+            </div>
+
+             <div className="btn hidden md:flex p-2 rounded-full">
+              <button className="flex items-center text-base" onClick={goToReviews}>
+                <div className="relative flex items-center justify-center">
+                  <div className="flex justify-center items-center p-2 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-amber-500 transition duration-500">
+                    <MdOutlineReviews  size={19} className="dark:text-white text-black" />
+                  </div>
+                </div>
+                <span className="ml-2">REVIEWS</span>
               </button>
             </div>
 
@@ -137,11 +149,11 @@ const scrollToSection = (id) => {
             className="md:hidden fixed top-0 left-0 w-3/4 h-screen bg-white dark:bg-black shadow-lg flex flex-col gap-6 p-6 pt-20 z-40 transition-transform duration-300"
           >
             <h5 className="nav-link cursor-pointer" onClick={() => navigate("/")}>Home</h5>
-            <h5 className="nav-link" onClick={() => scrollToSection("popular")}>Popular</h5>
+            <h5 className="nav-link cursor-pointer" onClick={() => scrollToSection("popular")}>Popular</h5>
             <h5 className="nav-link cursor-pointer" onClick={() => scrollToSection("works")}>Works</h5>
-            <h5 className="nav-link" onClick={() => scrollToSection("about")}>About Us</h5>
-            <h5 className="nav-link" onClick={() => scrollToSection("contact")}>Contact Us</h5>
-            <h5 className="nav-link" onClick={goToReviews}>Reviews</h5>
+            <h5 className="nav-link cursor-pointer" onClick={() => scrollToSection("about")}>About Us</h5>
+            <h5 className="nav-link cursor-pointer" onClick={() => scrollToSection("contact")}>Contact Us</h5>
+            <h5 className="nav-link cursor-pointer" onClick={goToReviews}>Reviews</h5>
 
             {/* MOBILE SHOP BUTTON */}
             <button
@@ -149,6 +161,13 @@ const scrollToSection = (id) => {
               onClick={goToShop}
             >
               <GiShoppingCart size={20} /> SHOP
+            </button>
+
+            <button
+              className="flex items-center gap-2 mt-4 p-3 rounded-lg bg-gray-200 dark:bg-gray-700"
+              onClick={goToReviews}
+            >
+              <MdOutlineReviews size={20} /> Reviews
             </button>
 
             {/* DARK MODE (Mobile) */}

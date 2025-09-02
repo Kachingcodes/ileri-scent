@@ -1,26 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Header from "./Header";
+import ReviewHeader from "./ReviewHeader";
 import Footer from './Footer';
 import reviewData from '../data/reviewData';
 import review_bg2 from '../img/review_bg2.png';
 import { FiSun, FiMoon } from "react-icons/fi";
 
 const Reviews = () => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  // Toggle dark class on body
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode)
-  }
 
   return (
     <div
@@ -28,20 +14,8 @@ const Reviews = () => {
       style={{ backgroundImage: `url(${review_bg2})` }}
     >
       
-      <div className="absolute top-0 w-full z-50 bg-[#9395a9eb] dark:bg-[#8d8fa1eb] h-[80px] md:h-[120px]">
-        <Header />
-      </div>
-
-      {/* Theme Toggle Button */}
-      <div className="absolute z-50 b-2 top-6 right-14
-        md:top-13 md:right-38 ">
-        <button
-          onClick={toggleDarkMode}
-          className="bg-amber-500 dark:bg-blue-300 text-black dark:text-white p-2 rounded-full shadow-md transition duration-300 hover:scale-110"
-          aria-label="Toggle Theme"
-        >
-          {darkMode ?  <FiMoon size={22} /> : <FiSun size={22} /> }
-        </button>
+      <div className="">
+        <ReviewHeader />
       </div>
 
         <div className="pt-40 px-6">
@@ -70,7 +44,6 @@ const Reviews = () => {
             </div>
 
         </div>
-
 
     </div>
   );
