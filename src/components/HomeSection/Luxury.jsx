@@ -11,16 +11,16 @@ const LuxuryExperience = () => {
   const [showQuiz, setShowQuiz] = useState(false);
 
   return (
-    <section className="w-full bg-[#fdfdfc] dark:bg-[#0f0b0b] py-16 px-6 md:px-16">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <section className="w-full overflow-x-hidden bg-[#fdfdfc] dark:bg-[#0f0b0b] py-10 md:py-16 px-6 md:px-16">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         
         {/* Left - Fragrance Quiz */}
         <motion.div 
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.0 }}
-          className="bg-white shadow-lg rounded-2xl p-8 flex flex-col items-start">
-          <h2 className="text-3xl font-serif text-gray-900 mb-4">
+          className="bg-white shadow-lg rounded-2xl p-6 md:p-8 flex flex-col items-start">
+          <h2 className="text-3xl font-playfair text-gray-900 mb-4">
             Find Your Signature Scent
           </h2>
           <p className="text-gray-600 mb-6">
@@ -66,28 +66,22 @@ const LuxuryExperience = () => {
           transition={{ duration: 1.0 }}
           className="relative bg-gradient-to-r from-[#f8f6f2] to-[#f0edea] shadow-lg rounded-2xl p-8 flex flex-col items-center text-center">
           <FaGift className="w-10 h-10 text-gray-800 mb-4" />
-          <h2 className="text-3xl font-serif text-gray-900 mb-4">
+          <h2 className="text-3xl font-playfair text-gray-900 mb-4">
             Gifting & Packaging
           </h2>
           <p className="text-gray-600 mb-6">
             Transform every fragrance into a cherished keepsake with our luxurious custom bottles and packaging. A perfect choice for birthdays, weddings, anniversaries, or any special occasion.
             Personalize your perfume with bespoke packaging that reflects your unique style.
           </p>
-          <div className="flex gap-4">
-            <img
-              src={pack}
-              alt="Luxury Packaging"
-              className="w-32 h-32 object-cover rounded-xl shadow shadow-[#0f0e0e]"
+          <div className="flex gap-4 w-full overflow-x-auto scrollbar-hide snap-x snap-mandatory">
+            <img src={pack} alt="Luxury Packaging"
+              className="w-40 h-40 object-cover rounded-xl shadow shadow-[#0f0e0e] flex-shrink-0 snap-center"
             />
-            <img
-              src={pack3}
-              alt="Gift Box"
-              className="w-32 h-32 object-cover rounded-xl shadow shadow-[#0f0e0e]"
+            <img src={pack3} alt="Gift Box"
+              className="w-40 h-40 object-cover rounded-xl shadow shadow-[#0f0e0e] flex-shrink-0 snap-center"
             />
-            <img
-              src={pack2}
-              alt="Gift Box"
-              className="w-32 h-32 object-cover rounded-xl shadow shadow-[#0f0e0e]"
+            <img src={pack2} alt="Gift Box"
+              className="w-40 h-40 object-cover rounded-xl shadow shadow-[#0f0e0e] flex-shrink-0 snap-center"
             />
           </div>
           <FaStar className="absolute top-6 right-6 text-yellow-500" />

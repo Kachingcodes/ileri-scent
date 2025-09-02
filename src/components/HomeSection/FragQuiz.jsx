@@ -174,7 +174,7 @@ const FragQuiz = ({ onClose }) => {
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-gray-900 dark:text-gray-300 hover:text-red-500 dark:hover:text-red-500"
+            className="absolute top-2 md:top-4 right-2 md:right-4 text-gray-900 dark:text-gray-300 hover:text-red-500"
           >
             <FaTimes size={20} />
           </button>
@@ -193,7 +193,7 @@ const FragQuiz = ({ onClose }) => {
                           <button
                             key={optIdx}
                             onClick={() => handleAnswer(currentQ + idx, opt)}
-                            className={`w-full text-left px-4 py-2 rounded-lg border ${
+                            className={`w-full text-left px-3 md:px-4 py-2 rounded-lg border ${
                               answers[currentQ + idx] === opt
                                 ? "bg-black text-white dark:bg-[#d39c44] dark:text-black"
                                 : "bg-white dark:bg-[#2a2a2a] text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#3a3a3a]"
@@ -224,7 +224,7 @@ const FragQuiz = ({ onClose }) => {
               <h2 className="text-2xl font-bold mb-2">
                 Your Signature Category: {finalResult.category}
               </h2>
-              <p className="mb-4 text-gray-600 dark:text-gray-400">
+              <p className="mb-4 text-gray-600 dark:text-gray-400 text-sm md:text-md">
                 We recommend exploring these iconic perfumes:
               </p>
 

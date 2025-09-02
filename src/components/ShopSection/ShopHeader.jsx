@@ -89,7 +89,7 @@ const scrollToSection = (id) => {
 
           {/* DESKTOP NAV */}
             <div className="hidden md:flex gap-8 items-center absolute left-1/2 transform -translate-x-1/2 cursor-pointer">
-                <h2 className="font-semibold text-2xl md:text-3xl tracking-wide font-playfair">SHOP</h2>
+                <h2 className="font-semibold text-3xl md:text-4xl tracking-wide font-playfair">SHOP</h2>
             </div>
 
           {/* RIGHT: Home + Reviews + Dark Toggle + Mobile Icon */}

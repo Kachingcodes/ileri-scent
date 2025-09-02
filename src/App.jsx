@@ -33,7 +33,7 @@ function App() {
               <Works/>
               <Wanted/>  
               <About />
-              {/* <Luxury/> */}
+              <Luxury/>
               <Footer />  
               
             </div>

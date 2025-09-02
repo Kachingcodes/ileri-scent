@@ -14,7 +14,7 @@ const Signature = () => {
   return (
     <section className="bg-[#e8d6be] dark:bg-[#060606] py-8 md:py-16 px-6 text-gray-900 dark:text-white" id="signature">
       <div className="max-w-6xl mx-auto text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-playfair tracking-wide">Signature Collections</h2>
+        <h2 className="text-3xl md:text-4xl font-playfair font-semibold tracking-wide">Signature Collections</h2>
         <p className="text-gray-800 dark:text-gray-300 mt-4 text-sm md:text-md max-w-xl mx-auto">
           Discover scents crafted for every occasion, mood, and personality.
         </p>

@@ -32,7 +32,7 @@ const Works = () => {
         />
       
         <div className="text-center mb-10 md:mb-20 z-10 relative px-4">
-          <h1 className="text-3xl sm:text-3xl md:text-4xl tracking-wide mb-2 font-playfair">
+          <h1 className="text-3xl sm:text-3xl md:text-4xl tracking-wide mb-2 font-playfair font-semibold">
             TO GET A BOTTLE
           </h1>
           <p className="text-gray-800 dark:text-gray-300 mt-4 text-sm md:text-md max-w-xl mx-auto">

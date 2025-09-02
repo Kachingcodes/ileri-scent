@@ -29,7 +29,7 @@ const Categories = () => {
 
   return (
     <div className="bg-white w-full flex flex-col items-center justify-start p-0 md:p-10 min-h-screen">
-        <h1 className="text-center text-4xl sm:text-3xl md:text-5xl mt-8 md:mt-0 font-extrabold tracking-wider font-playfair text-black">CATEGORIES</h1>
+        <h1 className="text-center text-3xl sm:text-3xl md:text-4xl mt-8 md:mt-0 font-semibold tracking-wide font-playfair text-black">CATEGORIES</h1>
     
     {/* CATEGORY CARDS */}
       <div className="grid grid-cols-2 md:grid-cols-4 items-center justify-evenly gap-6 md:gap-12 mt-20 md:mt-40">

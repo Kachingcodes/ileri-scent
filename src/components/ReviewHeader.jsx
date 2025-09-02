@@ -71,7 +71,7 @@ const ReviewHeader = () => {
 
           {/* DESKTOP NAV */}
           <div className="hidden md:flex gap-8 items-center absolute left-1/2 transform -translate-x-1/2 cursor-pointer">
-            <h2 className="font-semibold text-2xl md:text-3xl tracking-wide font-playfair">REVIEWS</h2>
+            <h2 className="font-semibold text-3xl md:text-4xl tracking-wide font-playfair">REVIEWS</h2>
           </div>
         
           {/* RIGHT: Home + Shop + Dark Toggle + Mobile Icon */}
@@ -134,7 +134,7 @@ const ReviewHeader = () => {
 
             <button
               className="flex items-center gap-2 mt-4 p-3 rounded-lg bg-gray-200 dark:bg-gray-700"
-              onClick={goToReviews}
+              onClick={goToShop}
             >
               <GiShoppingCart size={20} /> Shop
             </button>
