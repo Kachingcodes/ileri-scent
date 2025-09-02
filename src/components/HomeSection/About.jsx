@@ -1,130 +1,110 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
+import { FaLeaf, FaAppleAlt } from "react-icons/fa";
+import { GiRose } from "react-icons/gi";
 import { motion } from "framer-motion";
-import { gsap } from "gsap";
-import red1 from "../../img/bottles/red1.png"; 
 
+const textVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.2, duration: 0.6, ease: "easeOut" },
+  }),
+};
 
 const About = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [displayText, setDisplayText] = useState("");
-  const [isVisible, setIsVisible] = useState(false);
-  const aboutRef = useRef(null);
-  const rotatingCircleRef = useRef(null);
-
-  const fullText = `Each scent is expertly crafted with premium oils, blending musky, woody, fresh, and fruity notes. Featuring ingredients like sandalwood, vanilla, jasmine, and citrus, our perfumes evoke romantic allure and timeless sophistication. Inspired by the iconic creations of Tom Ford, Chanel, and more, we bring you indulgence and elegance—at a more accessible price. Whether bold, or subtly floral, our fragrances make every moment feel luxurious.`;
-  const words = fullText.split(" "); 
-
-  const textVariants = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        staggerChildren: 0.1,
-        duration: 0.9,
-      },
-    },
-  };
-
-  const singleTextVariants = {
-    hidden: { opacity: 0, x: 0, y: 0 },
-    visible: ({ angle }) => ({
-      opacity: 1,
-      x: 150 * Math.cos(angle) - 35,
-      y: 140 * Math.sin(angle) - 8,
-      transition: { duration: 3.9 },
-    }),
-  };
-
-  useEffect(() => {
-    const rotationTimeline = gsap.timeline({ repeat: -1, yoyo: false });
-    rotationTimeline.to(rotatingCircleRef.current, {
-      rotation: 360,
-      duration: 10,
-      ease: "linear"
-    });
-
-    return () => rotationTimeline.kill();
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(false);
-          setTimeout(() => setIsVisible(true), 0);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (aboutRef.current) observer.observe(aboutRef.current);
-    return () => aboutRef.current && observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (isVisible && currentIndex < words.length) {
-      const timer = setTimeout(() => {
-        setDisplayText((prevText) =>
-          prevText ? `${prevText} ${words[currentIndex]}` : words[currentIndex]
-        );
-        setCurrentIndex((prevIndex) => prevIndex + 1);
-      }, 200);
-      return () => clearTimeout(timer);
-    } else if (!isVisible) {
-      setCurrentIndex(0);
-      setDisplayText("");
-    }
-  }, [isVisible, currentIndex, words]);
-
   return (
-    <section id="about">
-      <div className="w-full flex bg-[#f5f1ef] dark:bg-[#151515] flex-col-reverse md:flex-row text-black dark:text-white p-4 gap-10 h-[860px] md:h-[500px]" ref={aboutRef}>
+    <section className="bg-white dark:bg-[#0f0b0b] dark:text-white text-gray-800 py-20 px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         
-        {/* Left Side - Animation */}
-        <div className="flex flex-1 mt-16 mb-20 md:mb-0 justify-center items-center relative ">
-          <div
-            ref={rotatingCircleRef}
-            className="absolute rounded-full  border-2 border-[#d4af37] w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px] 
-              animate-spin-slow dark:bg-gradient-to-br dark:from-[#8f7725] dark:via-[#f6e27a] dark:to-[#c49a3b] bg-gradient-to-tr from-[#5a4310] via-[#d4af37] to-[#8a6d1c]"
-          ></div>
-
-          <div className="absolute rounded-full border-2 border-[#d4af37] w-[100px] h-[100px] sm:w-[100px] sm:h-[100px] md:w-[140px] md:h-[140px]"></div>
-
-          <div className="relative z-10">
-            <img src={red1} alt="Bottle" className="w-13 h-18 sm:w-13 sm:h-20 md:w-20 md:h-28" loading="lazy" />
-          </div>
-
-          {/* Circular Text Animation */}
-          <motion.div
-            className="absolute z-20 font-news ml-7 md:ml-1 text-sm md:text-md dark:text-[#f7f8f5]"
-            variants={textVariants}
+        {/* About Section */}
+        <div>
+          <motion.h2
+            className="text-3xl font-bold mb-4 font-playfair tracking-wide dark:text-[#e8d6be]"
             initial="hidden"
-            animate={isVisible ? "visible" : "hidden"}
-            transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={0}
+            variants={textVariants}
           >
-            {["Elegant", "Woody", "Irresistible", "Musky", "Sensual", "Timeless", "Enchanting", "Romantic"].map((text, index) => (
-              <motion.div
-                key={index}
-                custom={{ angle: (index * (2 * Math.PI)) / 8 }}
-                className="circle-text-item absolute"
-                variants={singleTextVariants}
-              >
-                {text}
-              </motion.div>
-            ))}
-          </motion.div>
+            About Us
+          </motion.h2>
+
+          <motion.p
+            className="mb-4 text-lg leading-relaxed text-gray-200"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={1}
+            variants={textVariants}
+          >
+            At <span className="font-semibold">Maison de Parfum</span>, we believe that 
+            every fragrance tells a story. Our perfumes are crafted from the world’s 
+            finest ingredients, blended with artistry and passion to create timeless scents.
+          </motion.p>
+
+          <motion.p
+            className="mb-4 text-lg leading-relaxed text-gray-200"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+            custom={2}
+            variants={textVariants}
+          >
+            From delicate florals to bold spices, each bottle is an expression of luxury, 
+            elegance, and individuality. Our mission is to help you discover a fragrance 
+            that resonates with your spirit and leaves a lasting impression.
+          </motion.p>
+
+          <motion.p
+            className="text-lg leading-relaxed text-gray-200"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+            custom={3}
+            variants={textVariants}
+          >
+            More than a scent—it’s an experience. Welcome to the art of true perfumery.
+          </motion.p>
         </div>
 
-        {/* Right Side - Text */}
-        <div className="md:mt-28 flex-1 px-4 sm:px-8">
-          <h1 className="text-2xl sm:text-3xl md:text-3xl font-bold font-playfair lg:text-right sm:text-center mb-4">
-            ABOUT US
-          </h1>
-          <p className="bg-[#1a1a1a] hover:shadow-[#deac69] p-4 sm:p-6 rounded-2xl font-news text-sm sm:text-base md:text-lg leading-relaxed text-white/80 shadow-md border border-[#d4af37]/20">
-            {displayText}
-          </p>
-        </div>
+        {/* Fragrance Notes Explorer */}
+        <motion.div 
+          initial={{ opacity: 0, y: -100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.0 }}
+          className="bg-[#f9f9f9] dark:bg-[#ffffff]/4 rounded-2xl shadow-lg p-6">
+          <h3 className="text-2xl font-semibold mb-6 text-center font-playfair tracking-wide">
+            Fragrance Notes Explorer
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+            
+            <div className="flex flex-col items-center">
+              <FaAppleAlt className="text-4xl text-[#1C4672] mb-3" />
+              <h4 className="font-semibold font-news text-lg">Top Notes</h4>
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                Citrus, Bergamot, Green Apple
+              </p>
+            </div>
+            
+            <div className="flex flex-col items-center">
+              <GiRose className="text-4xl text-pink-600 mb-3" />
+              <h4 className="font-semibold font-news text-lg">Heart Notes</h4>
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                Rose, Jasmine, Lavender
+              </p>
+            </div>
+            
+            <div className="flex flex-col items-center">
+              <FaLeaf className="text-4xl text-green-600 mb-3" />
+              <h4 className="font-semibold font-news text-lg">Base Notes</h4>
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                Amber, Vanilla, Sandalwood
+              </p>
+            </div>
+
+          </div>
+        </motion.div>
       </div>
     </section>
   );

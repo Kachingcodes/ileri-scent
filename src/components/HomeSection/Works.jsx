@@ -18,11 +18,11 @@ const Works = () => {
 
   return (
     <section id="works">
-      <div className="bg-[#e8d6be] dark:bg-[#0f0b0b] w-full text-[#2E2E2E] dark:text-white py-12 relative overflow-hidden">
+      <div className="bg-white dark:bg-[#0f0b0b] w-full text-[#2E2E2E] dark:text-white py-16 px-8 relative overflow-hidden">
 
         <motion.img 
           className="hidden md:block md:absolute w-70 top-[40%] left-[10%]
-                    md:top-[44%] md:left-[42%] md:opacity-100"
+                    md:top-[38%] md:left-[42%] md:opacity-100"
           loading="lazy"
           src={enchanting} 
           variants={botVariants}
@@ -32,10 +32,10 @@ const Works = () => {
         />
       
         <div className="text-center mb-20 z-10 relative px-4">
-          <h1 className="text-2xl sm:text-3xl md:text-3xl font-bold mb-4 font-playfair">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl tracking-wide mb-2 font-playfair">
             TO GET A BOTTLE
           </h1>
-          <p className="text-base md:text-lg text-[#13120f] dark:text-white max-w-xl mx-auto font-news">
+          <p className="text-gray-800 dark:text-white max-w-xl mx-auto">
             Just four quick steps to receive your custom perfume.
           </p>
         </div>
@@ -52,8 +52,8 @@ const Works = () => {
               whileInView="visible"
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              <h1 className="text-lg md:text-2xl font-playfair p-3">1. SCENT</h1>
-              <p className="text-sm sm:text-base font-news bg-[#d39c44] p-3 rounded-xl">Pick your favorite scent from our luxurious selection.</p>
+              <h1 className="text-lg md:text-2xl font-playfair font-semibold p-3">1. SCENT</h1>
+              <p className="text-sm sm:text-base font-news bg-[#e8d6be] dark:bg-[#d39c44] p-3 rounded-xl">Pick your favorite scent from our luxurious selection.</p>
             </motion.div>
 
             <motion.div
@@ -63,8 +63,8 @@ const Works = () => {
               whileInView="visible"
               transition={{ delay: 1.2, duration: 0.8 }}
             >
-              <h1 className="text-xl sm:text-2xl font-playfair p-3">2. VOLUME</h1>
-              <p className="text-sm sm:text-base font-news bg-[#d39c44] p-3 rounded-xl">Select your preferred volume.</p>
+              <h1 className="text-xl sm:text-2xl font-playfair font-semibold p-3">2. VOLUME</h1>
+              <p className="text-sm sm:text-base font-news bg-[#e8d6be] dark:bg-[#d39c44] p-3 rounded-xl">Select your preferred volume.</p>
             </motion.div>
           </div>
 
@@ -77,8 +77,8 @@ const Works = () => {
               whileInView="visible"
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              <h1 className="text-xl sm:text-2xl font-playfair p-3">3. PAYMENT</h1>
-              <p className="text-sm sm:text-base font-news bg-[#d39c44] p-3 rounded-xl">You’ll be redirected to our WhatsApp shop to make payment.</p>
+              <h1 className="text-xl sm:text-2xl font-playfair font-semibold p-3">3. PAYMENT</h1>
+              <p className="text-sm sm:text-base font-news bg-[#e8d6be] dark:bg-[#d39c44] p-3 rounded-xl">You’ll be redirected to our WhatsApp shop to make payment.</p>
             </motion.div>
 
             <motion.div
@@ -88,8 +88,8 @@ const Works = () => {
               whileInView="visible"
               transition={{ delay: 1.5, duration: 0.8 }}
             >
-              <h1 className="text-xl sm:text-2xl font-playfair p-3">4. DELIVERY</h1>
-              <p className="text-sm sm:text-base font-news bg-[#d39c44] p-3 rounded-xl">Your perfume will arrive within 5 business days.</p>
+              <h1 className="text-xl sm:text-2xl font-playfair font-semibold p-3">4. DELIVERY</h1>
+              <p className="text-sm sm:text-base font-news bg-[#e8d6be] dark:bg-[#d39c44] p-3 rounded-xl">Your perfume will arrive within 5 business days.</p>
             </motion.div>
           </div>
 

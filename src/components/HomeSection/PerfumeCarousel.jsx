@@ -1,198 +1,68 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { wantedData } from "../../data/wantedData";
-import left from "../../img/icons/left2.png";
-import right from "../../img/icons/right2.png";
-import { IoArrowBackCircleOutline } from "react-icons/io5";
-import { FiInfo } from "react-icons/fi";
 
 const PerfumeCarousel = () => {
-  const navigate = useNavigate();
-  const [selected, setSelected] = useState(1);
-  const [showInfo, setShowInfo] = useState(false);
+    const navigate = useNavigate();
 
-const toggleInfo = (e) => {
-  e.stopPropagation();
-  setShowInfo((prev) => !prev);
-};
-
-const handleLeftClick = () => {
-  setSelected((prev) => (prev - 1 + wantedData.length) % wantedData.length);
-};
-
-const handleRightClick = () => {
-  setSelected((prev) => (prev + 1) % wantedData.length);
-};
-
-const goToShop = () => {
+    const goToShop = () => {
   navigate("/shop");
 };
 
-return(
 
-  <div className="flex flex-col w-full p-2 items-center justify-center text-[#2E2E2E] dark:text-[#efe9e9]">
-        <div className="w-[80%] md:w-full overflow-x-auto">
-          <div className="w-full flex items-center justify-between gap-6 md:gap-14 mt-10 md:mt-20 mb-8">
-
-            {/* Previous Two Images */}
-            <div className="relative hidden opacity-30 shadow-md shadow-[#2c2a24] dark:shadow-[#554617]
-              h-52 w-60 md:w-48 rounded-xl pt-20 pb-6 px-4 md:flex flex-col items-center justify-center gap-2 transition duration-500 ease-in-out scale-90">
-              <img   
-                className="absolute -top-7 
-                md:-top-7
-                w-23
-                drop-shadow-lg"
-                src={wantedData[(selected - 2 + wantedData.length) % wantedData.length].image}
-                alt="Perfume"
+  return (
+    <div className="w-full overflow-hidden py-20">
+      <div className="carousel-track flex animate-scroll gap-8">
+        {/* Duplicate the items twice so it loops seamlessly */}
+        {[...wantedData, ...wantedData].map((item, index) => (
+          <div
+            key={index}
+            className="relative min-w-[200px] md:min-w-[250px] flex-shrink-0 rounded-xl shadow-lg p-6 pt-16 bg-white/2 dark:bg-white/8"
+          >
+            {/* Floating image */}
+            <div className="absolute -top-10 left-1/2 -translate-x-1/2">
+              <img
+                src={item.image}
+                alt={item.name}
+                className="w-36 h-40 object-contain mx-auto drop-shadow-xl transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
               />
-
-              <div className="text-center text-sm mt-10">
-                <span className="font-semibold font-news">
-                  {wantedData[(selected - 2 + wantedData.length) % wantedData.length].name}
-                </span>
-
-                <button 
-                  onClick={() => navigate("/shop")}
-                  className="mt-2 inline-flex gap-2 items-center bg-[#d4af37] text-[#0b0f1c] font-bold py-2 px-4 rounded-full hover:bg-[#704e0b] hover:text-white transition">
-                  ORDER <IoArrowBackCircleOutline className="animate-bounce mt-1" />
-                </button>
-              </div>
             </div>
 
-            {/* Previous Image */}
-            <div className="relative opacity-60 shadow-md shadow-[#2c2a24] dark:shadow-[#554617]
-            h-60 w-40
-            md:h-62 md:w-48
-            rounded-xl pt-20 pb-6 px-4 flex flex-col items-center justify-center gap-2 transition duration-500 ease-in-out scale-90">
-              <img
-                className="absolute -top-9 md:-top-8
-                w-24 md:w-25 
-                drop-shadow-lg"
-                src={wantedData[(selected - 1 + wantedData.length) % wantedData.length].image}
-                alt="Perfume"
-                loading="lazy"
-              />
-              <div className="text-center text-sm mt-10">
-                <span className="font-semibold font-news">
-                  {wantedData[(selected - 1 + wantedData.length) % wantedData.length].name}
-                </span>
-
-                <button 
-                  onClick={() => navigate("/shop")}
-                  className="mt-2 inline-flex gap-2 items-center bg-[#d4af37] text-[#0b0f1c] font-bold py-2 px-4 rounded-full hover:bg-[#704e0b] hover:text-white transition">
-                  ORDER <IoArrowBackCircleOutline className="animate-bounce mt-1" />
-                </button>
-              </div>
-            </div>
-
-            {/* Current Image border border-[#12110f] */}
-            <div className="h-66 w-60 md:h-72 md:w-60
-            rounded-xl pt-20 pb-6 px-4 flex flex-col items-center justify-center transform scale-100 transition duration-500 ease-in-out shadow-md shadow-[#2c2a24] dark:shadow-[#d8b447] relative">
-              
-              {/* INFO ICON */}
-                <div
-                  className="absolute top-2 right-2 bg-black text-white p-1 rounded-full z-20 
-                            md:hover:bg-black/60 cursor-pointer"
-                  onClick={toggleInfo}
-                  onMouseEnter={() => window.innerWidth >= 768 && setShowInfo(true)}
-                  onMouseLeave={() => window.innerWidth >= 768 && setShowInfo(false)}
-              >
-                <FiInfo size={16} />
-              </div>
-              {/* INFO MODAL */}
-                {showInfo && (
-                <div className="absolute top-0 right-0 z-10 bg-[#e8d6be] dark:bg-[black] text-black dark:text-white text-md 
-                            p-3 rounded-lg shadow-lg w-full max-h-60 md:max-h-full overflow-y-auto"
-                >
-                    <p className="p-2 md:p-3">{wantedData[selected].notes}</p>
-                </div>
-            )}
-
-              <img
-                className="absolute -top-10 md:-top-11 w-26 sm:w-28 md:w-32 drop-shadow-lg"
-                src={wantedData[selected].image}
-                alt="Perfume" loading="lazy"
-              />
-
-              <div className="text-center flex flex-col items-center mt-14 md:mt-16">
-                <span className="text:sm md:text-lg font-news font-bold">{wantedData[selected].name}</span>
-                <button 
+            {/* Text content */}
+            <div className="text-center mt-16">
+              <h3 className="font-bold">{item.name}</h3>
+              <button 
                 onClick={() => navigate("/shop")}
-                className="mt-3 inline-flex gap-2 bg-[#d4af37] text-[#0b0f1c] font-semibold py-2 px-4 rounded-full hover:bg-[#f7b124] hover:text-white transition">
-                  ORDER <IoArrowBackCircleOutline className="animate-bounce mt-1" />
-                </button>
-              </div>
+                className="mt-2 inline-block bg-white dark:bg-[#d39c44] text-[#0b0f1c] font-semibold px-4 py-2 rounded-full hover:dark: hover:bg-gray-100 hover:dark:bg-[#e8d6be] transition">
+                Order
+              </button>
             </div>
-
-            {/* Next Image */}
-            <div className="relative opacity-60 shadow-md shadow-[#2c2a24] dark:shadow-[#554617]
-              h-60 w-40 md:h-62 md:w-48 
-              rounded-xl pt-20 pb-6 px-4 flex flex-col items-center justify-center gap-2 transition duration-500 ease-in-out scale-90">
-              <img
-                className="absolute -top-10 md:-top-9 
-                w-24 md:w-25 
-                drop-shadow-lg"
-                src={wantedData[(selected + 1) % wantedData.length].image}
-                alt="Perfume"
-                loading="lazy"
-              />
-              <div className="text-center text-sm mt-10">
-                <span className="font-semibold font-news">
-                  {wantedData[(selected + 1) % wantedData.length].name}
-                </span>
-
-                <button 
-                  onClick={() => navigate("/shop")}
-                  className="mt-2 inline-flex gap-2 items-center bg-[#d4af37] text-[#0b0f1c] font-bold py-2 px-4 rounded-full hover:bg-[#704e0b] hover:text-white transition">
-                  ORDER <IoArrowBackCircleOutline className="animate-bounce mt-1" />
-                </button>
-              </div>
-            </div>
-
-            {/* Next Two Images */}
-            <div className="relative opacity-30 h-52 w-48 rounded-xl pt-20 pb-6 px-4 hidden md:flex flex-col items-center justify-center gap-2 transition duration-500 ease-in-out scale-90 shadow-md shadow-[#2c2a24] dark:shadow-[#554617]">
-              <img
-                className="absolute -top-7 w-23 drop-shadow-lg"
-                src={wantedData[(selected + 2 + wantedData.length) % wantedData.length].image}
-                alt="Perfume"
-                loading="lazy"
-              />
-              <div className="text-center text-sm mt-10">
-                <span className="font-semibold font-news">
-                  {wantedData[(selected + 2 + wantedData.length) % wantedData.length].name}
-                </span>
-                <button 
-                  onClick={() => navigate("/shop")}
-                  className="mt-2 inline-flex gap-2 items-center bg-[#d4af37] text-[#0b0f1c] font-bold py-2 px-4 rounded-full hover:bg-[#704e0b] hover:text-white transition">
-                  ORDER <IoArrowBackCircleOutline className="animate-bounce mt-1" />
-                </button>
-              </div>
-            </div>
-
           </div>
-        </div>
-
-        <div className="flex flex-row items-center gap-12 md:gap-20">
-          <img
-            src={left}
-            alt="Left arrow"
-            className="w-10 cursor-pointer hover:scale-110 transition"
-            onClick={handleLeftClick}
-            loading="lazy"
-          />
-          <img
-            src={right}
-            alt="Right arrow"
-            className="w-10 cursor-pointer hover:scale-110 transition"
-            onClick={handleRightClick}
-            loading="lazy"
-          />
-        </div>
+        ))}
       </div>
 
-);
+      {/* Tailwind keyframes for infinite scroll */}
+      <style>
+        {`
+          @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-scroll {
+            animation: scroll 25s linear infinite;
+            width: max-content;
+          }
+          /* Pause on hover or touch */
+          .carousel-track:hover,
+          .carousel-track:active {
+            animation-play-state: paused;
+          }
+        `}
+      </style>
+    </div>
+  );
 };
 
 export default PerfumeCarousel;

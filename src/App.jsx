@@ -6,8 +6,10 @@ import 'swiper/css/pagination';
 import { Analytics } from "@vercel/analytics/react";
 import Body from "./components/HomeSection/Body";
 import Wanted from "./components/HomeSection/Wanted";
-import Popular from "./components/HomeSection/Popular";
+import Signature from "./components/HomeSection/Signature";
+import Fragrance from "./components/HomeSection/Fragrance";
 import Works from "./components/HomeSection/Works";
+import Luxury from "./components/HomeSection/Luxury";
 import About from "./components/HomeSection/About";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -28,10 +30,13 @@ function App() {
           element={
             <div className="App">
               <Body/>
-              <Wanted />
-              <Popular/>
-              <Works />
+              <Signature/>
+              {/* <Fragrance/> */}
+              <Works/>
+              <Wanted/>  
+              
               <About />
+              <Luxury/>
               <Footer />  
               
             </div>
