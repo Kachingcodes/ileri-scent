@@ -73,7 +73,7 @@ const LuxuryExperience = () => {
             Transform every fragrance into a cherished keepsake with our luxurious custom bottles and packaging. A perfect choice for birthdays, weddings, anniversaries, or any special occasion.
             Personalize your perfume with bespoke packaging that reflects your unique style.
           </p>
-          <div className="flex gap-4 w-full ml-0 md:ml-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
+          <div className="flex gap-4 w-full ml-0g md:ml-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
             <img src={pack} alt="Luxury Packaging"
               className="w-40 h-40 object-cover rounded-xl shadow shadow-[#0f0e0e] flex-shrink-0 snap-center"
             />

@@ -9,32 +9,57 @@ import sensual_sweetness from "../img/bottles/sensual_sweetness2.png";
 export const wantedData = [
   {
     image: cherry,
-    name: 'CHERRY MIRAGE',
+    name: 'FRUITY CHERRY',
     notes: "50ml - #15K"
   },
   {
     image: floral_currant,
-    name: 'FLORAL CURRANT',
+    name: 'SHAY BLOOM',
     notes:"50ml - #15K 50ml - #15K 50ml - #15K 50ml - #15K 50ml - #15K 50ml - #15K 50ml - #15K"
   },
   {
     image : liquid_desire,
-    name: 'LIQUID DESIRE',
+    name: 'CODED BOSS',
     notes: "50ml - #15K"
   },
   {
     image : oud_wood,
-    name: 'OUD WOOD',
+    name: 'SCENTED OUD',
     notes:"50ml - #15K"
   },
   {
     image: second_turn,
-    name: 'SECOND TURN',
+    name: 'MAGNETIC RUSH',
     notes:"50ml - #15K"
   },
   {
     image: sensual_sweetness,
-    name: 'SENSUAL SWEETNESS',
+    name: "ESSENTIAL D'ILERI",
+    notes:"50ml - #15K"
+  },
+  {
+    image: sensual_sweetness,
+    name: "CITRUS BLOSSOM",
+    notes:"50ml - #15K"
+  },
+  {
+    image: sensual_sweetness,
+    name: "FRUITY PEA",
+    notes:"50ml - #15K"
+  },
+  {
+    image: sensual_sweetness,
+    name: "SILKEN CODE",
+    notes:"50ml - #15K"
+  },
+  {
+    image: sensual_sweetness,
+    name: "CIVELLE SIGNATURE",
+    notes:"50ml - #15K"
+  },
+  {
+    image: sensual_sweetness,
+    name: "SMOKEY INTENSIVE",
     notes:"50ml - #15K"
   }
 ];

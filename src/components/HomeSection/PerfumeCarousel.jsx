@@ -10,9 +10,8 @@ const PerfumeCarousel = () => {
   navigate("/shop");
 };
 
-
   return (
-    <div className="w-full overflow-hidden py-20">
+    <div className="overflow-hidden py-20 w-full">
       <div className="carousel-track flex animate-scroll gap-8">
         {/* Duplicate the items twice so it loops seamlessly */}
         {[...wantedData, ...wantedData].map((item, index) => (
@@ -43,7 +42,7 @@ const PerfumeCarousel = () => {
         ))}
       </div>
 
-      {/* Tailwind keyframes for infinite scroll */}
+      {/* Keyframes for infinite scroll */}
       <style>
         {`
           @keyframes scroll {
@@ -51,7 +50,7 @@ const PerfumeCarousel = () => {
             100% { transform: translateX(-50%); }
           }
           .animate-scroll {
-            animation: scroll 25s linear infinite;
+            animation: scroll 50s linear infinite;
             width: max-content;
           }
           /* Pause on hover or touch */

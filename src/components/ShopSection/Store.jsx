@@ -6,8 +6,7 @@ import CartModal from "../ShopSection/CartModal";
 // Datasets
 import { maleData } from "../../data/maleData";
 import { femaleData } from "../../data/femaleData";
-import { unisexData } from "../../data/unisexData";
-import { storeData } from "../../data/storeData";
+import { diffuserData } from "../../data/diffuserData";
 
 const Store = ({ category }) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -19,8 +18,7 @@ const Store = ({ category }) => {
   let products = [];
   if (category === "MEN") products = maleData;
   else if (category === "WOMEN") products = femaleData;
-  else if (category === "UNISEX") products = unisexData;
-  else if (category === "DIFFUSER") products = storeData;
+  else if (category === "DIFFUSER") products = diffuserData;
 
   const openPurchasePanel = (product) => {
     setSelectedProduct(product);
@@ -30,29 +28,28 @@ const Store = ({ category }) => {
   const addToCart = () => {
     if (!selectedVolume) return;
 
-    const price = selectedVolume === "30ml" ? "₦10,000" :
-                  selectedVolume === "50ml" ? "₦15,000" :
-                  "₦30,000";
+const index = selectedProduct.volumes.indexOf(selectedVolume);
+    const price = `₦${selectedProduct.prices[index].toLocaleString()}`;
 
     const newItem = {
       name: selectedProduct.name,
       image: selectedProduct.image,
       option: selectedVolume,
       price,
-      quantity: 1
+      quantity: 1,
     };
 
-    setCartItems(prev => [...prev, newItem]);
+    setCartItems((prev) => [...prev, newItem]);
     setSelectedVolume("");
   };
 
-  const volumes = [
-    { label: "30ml", price: "₦10,000" },
-    { label: "50ml", price: "₦15,000" },
-    { label: "100ml", price: "₦30,000" },
-  ];
+   const productOptions =
+    selectedProduct?.volumes.map((vol, idx) => ({
+      label: vol,
+      price: `₦${selectedProduct.prices[idx].toLocaleString()}`,
+    })) || [];
 
-      const filteredProducts = products.filter((item) =>
+  const filteredProducts = products.filter((item) =>
     item.name.toLowerCase().includes(searchItem.toLowerCase())
   );
 
@@ -134,7 +131,7 @@ const Store = ({ category }) => {
             <span className="font-semibold">Volume</span>
             <span className="font-semibold">Price</span>
 
-            {volumes.map(v => (
+            {productOptions.map(v => (
               <React.Fragment key={v.label}>
                 <div
                   className={`col-span-2 grid grid-cols-2 gap-2 p-2 rounded cursor-pointer hover:bg-gray-300 transition-all ${
@@ -199,7 +196,7 @@ const Store = ({ category }) => {
         <span className="font-semibold">Volume</span>
         <span className="font-semibold">Price</span>
 
-        {volumes.map(v => (
+        {productOptions.map(v => (
           <React.Fragment key={v.label}>
             <div
               className={`col-span-2 grid grid-cols-2 gap-2 p-2 rounded cursor-pointer hover:bg-gray-300 transition-all ${

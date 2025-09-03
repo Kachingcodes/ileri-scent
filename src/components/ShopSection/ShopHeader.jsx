@@ -102,7 +102,7 @@ const scrollToSection = (id) => {
                     <FaHome size={19} className="dark:text-white text-black" />
                   </div>
                 </div>
-                <span className="ml-2">Home</span>
+                <span className="ml-2 hover:text-amber-500">HOME</span>
               </button>
             </div>
 
@@ -113,7 +113,7 @@ const scrollToSection = (id) => {
                     <MdOutlineReviews  size={19} className="dark:text-white text-black" />
                   </div>
                 </div>
-                <span className="ml-2">REVIEWS</span>
+                <span className="ml-2 hover:text-amber-500">REVIEWS</span>
               </button>
             </div>
 

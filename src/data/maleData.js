@@ -15,65 +15,189 @@ import sensual_sweetness from "../img/bottles/sensual_sweetness2.png";
 
 
 export const maleData = [
-  {
+   {
     id:1,
     image : cherry,
     name: 'Bleu D’ileri ',
-    notes: 'Inspired by Bleu de Chanel. Starts with fresh citrus and aromatic woods, accented by incense, amber, and a hint of spice. Smooth, masculine, and long-lasting, it’s a sophisticated scent for the modern man who exudes quiet strength and effortless style.'
+    notes: 'Inspired by Bleu de Chanel. Starts with fresh citrus and aromatic woods, accented by incense, amber, and a hint of spice. Smooth, masculine, and long-lasting, it’s a sophisticated scent for the modern man who exudes quiet strength and effortless style.',
+    volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
   },
-  {
+   {
     id:2,
-    image: second_turn,
-    name: 'Citrus Blossom',
-    notes: 'Inspired by Scandal by Jean Paul Gaultier. Blending zesty citrus with sweet florals. Bright orange and honey lead into white blossoms over a creamy base. Sweet yet sophisticated, it’s a long-lasting scent for bold entrances and soft, feminine confidence.'
+    image: enchanting,
+    name: 'Clean Sport',
+    notes: 'Inspired by Polo Sport by Ralph Lauren. Opens with crisp citrus and mint, layered with lavender, neroli, and a clean musky base. Light, invigorating, and long-lasting, it’s a scent for active, confident individuals who move through the day with energy and effortless style.',
+    volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
   },
   {
     id:3,
-    image: enchanting,
-    name: 'Clean Sport',
-    notes: 'Inspired by Polo Sport by Ralph Lauren. Opens with crisp citrus and mint, layered with lavender, neroli, and a clean musky base. Light, invigorating, and long-lasting, it’s a scent for active, confident individuals who move through the day with energy and effortless style.'
+    image: sensual_sweetness,
+    name: 'Coded Boss',
+    notes: 'Inspired by Hugo Boss Bottled. It features crisp apple and subtle spice, flowing into warm cinnamon and woods, with a base of smooth vanilla and musk. Oil-rich and long-lasting, it’s a modern, confident scent for the driven man who leads with style and purpose.',
+    volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
   },
   {
     id:4,
-    image: sensual_sweetness,
-    name: 'Coded Boss',
-    notes: 'Inspired by Hugo Boss Bottled. It features crisp apple and subtle spice, flowing into warm cinnamon and woods, with a base of smooth vanilla and musk. Oil-rich and long-lasting, it’s a modern, confident scent for the driven man who leads with style and purpose.'
-  },
-  {
-    id:5,
     image: floral_currant,
     name: 'Darkly Wanted',
-    notes: 'Inspired by Azzaro The Most Wanted. This is a bold, magnetic blend of spicy cardamom, sweet toffee, and smoky amberwood. Oil-rich and long-lasting, it’s irresistibly seductive—perfect for evenings and those who live with confidence.'
+    notes: 'Inspired by Azzaro The Most Wanted. This is a bold, magnetic blend of spicy cardamom, sweet toffee, and smoky amberwood. Oil-rich and long-lasting, it’s irresistibly seductive—perfect for evenings and those who live with confidence.',
+    volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
   },
-  {
+{
+    id:5,
+    image : ember_incense,
+    name: 'Essential D’ileri',
+    notes: 'Inspired by Lacoste Essential. Features crisp citrus and watery notes, balanced with soft spices over a smooth woody base. Clean, light, and long-lasting, it’s a fresh scent for everyday wear that embodies freedom, simplicity, and effortless confidence.',
+    volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
+  },
+{
     id:6,
-    image : liquid_desire,
-    name: 'Elle Libre',
-    notes: 'Inspired by Libre by YSL. Elle Libre starts with vibrant lavender and citrus, softened by orange blossom and jasmine, and finishes with warm vanilla and musk. Rich and long-lasting, it’s a bold, feminine scent for the woman who lives freely with elegance and strength.'
+    image: ileri_aqua,
+    name: 'Golden Intense',
+   notes: 'Inspired by 1 Million by Paco Rabanne. It combines spicy cinnamon and fresh citrus with warm leather, amber, and sweet notes of rose and patchouli. Oil-rich and long-lasting, it’s a bold, seductive scent for the man who exudes confidence, luxury, and charisma.',
+   volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
   },
   {
     id:7,
-    image: sensual_sweetness,
-    name: 'Enchanting Seduction',
-    notes: 'Inspired by Pure Seduction by Victoria’s Secret. Begins with juicy red plum and fresh freesia, wrapped in a fruity-floral embrace. Light and long-lasting, it’s a playful, feminine scent for everyday confidence or a romantic evening.'
+     image: dark_juicy,
+    name: 'Ileri Bleu',
+   notes: 'Inspired by Blue Sapphire by Boadicea the Victorious. Begins with sparkling citrus and spices, layered over rose, lavender, and exotic florals on a base of oud, patchouli, and amber. Luxurious and long-lasting, it radiates elegance and timeless opulence.',
+   volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
   },
   {
     id:8,
-    image : ember_incense,
-    name: 'Essential D’ileri',
-    notes: 'Inspired by Lacoste Essential. Features crisp citrus and watery notes, balanced with soft spices over a smooth woody base. Clean, light, and long-lasting, it’s a fresh scent for everyday wear that embodies freedom, simplicity, and effortless confidence.'
+    image: ileri_aqua,
+    name: 'Leather Man',
+    notes: 'Inspired by Tom Ford’s Ombre Leather. It combines spicy cardamom and rich leather with warm amber and smoky woods. Smooth, sensual, and long-lasting, it’s a commanding scent for the modern man with quiet confidence and rugged sophistication.',
+    volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
+  },
+{
+    id:9,
+     image : ember_incense,
+    name: 'Magnestic Rush',
+    notes: 'Inspired by Paco Rabanne’s Invictus. It bursts with citrus and marine freshness, lifted by herbs and anchored in warm amber and woods. Energetic and confident, it’s a scent for those who thrive on victory and always stand out.', 
+    volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000] 
   },
   {
-    id:9,
-    image : cherry,
-    name: 'Fruity Cherry',
-    notes: 'Inspired by Tom Ford’s Lost Cherry. A rich, long-lasting blend of juicy black cherry, warm almond, and soft vanilla. Fruity Cherry finishes with smoky woods for a bold, playful scent that lingers. Perfect for lovers of sweet, fruity-gourmand fragrances.'
+    id:10,
+    image : juicy_flame,
+    name: 'Midnight Aquatic',
+    notes: 'Inspired by Acqua di Giò. It blends crisp citrus and marine notes with subtle herbs over a smooth woody base. Clean, refreshing, and effortlessly masculine, it’s an oil-rich scent that captures the cool, confident energy of the ocean.',
+    volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
+  },
+  {
+    id:11,
+    image : cold_cube,
+    name: 'Midnight Aquatic intense',
+    notes: 'Inspired by Acqua di Giò Intense. It opens with fresh marine notes and bergamot, then settles into smoky incense and patchouli for a bold, masculine finish. Oil-rich and long-lasting, it’s crisp yet intense—perfect for evening wear and leaving a powerful impression.',
+    volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
+  },
+{
+    id:12,
+    image : leather_spice,
+    name: 'Mountain River',
+   notes: 'Inspired by Creed Silver Mountain Water. Features bergamot and blackcurrant, flowing into green tea and fresh water notes over a clean, musky base. Oil-rich and long-lasting, it captures the freshness and clarity of mountain air with quiet sophistication.',
+   volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
+  },
+   {
+    id:13,
+    image : cold_cube,
+    name: 'Orchid Smoke',
+   notes: 'Inspired by Tom Ford’s Black Orchid. Opens with rich florals and exotic spices, flowing into dark chocolate, orchid, and smoky woods. Mysterious, luxurious, and long-lasting, it’s a scent for those who embrace their uniqueness and command attention with quiet power.',
+   volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
+  },
+  {
+    id:14,
+    image: ileri_aqua,
+    name: 'Oud Cares',
+    notes: 'Inspired by Oud Touch by Franck Olivier. Begins with sweet rose and caramel, layered over warm spices and smooth oud with woody notes. Oil-rich and long-lasting, it exudes warmth, depth, and quiet sophistication—bold yet embracing.',
+    volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
    },
   {
-    id:10,
-    image: dark_juicy,
-    name: 'Fruity Pea',
-    notes: 'Inspired by Paco Rabanne’s Olympea. It blends juicy fruits, soft florals, and a salty vanilla base for a sweet yet sensual scent. Oil-rich and long-lasting, it’s bold, feminine, and effortlessly elegant.'
+    id:15,
+    image : liquid_desire,
+    name: 'Rouge Elite',
+   notes: 'Inspired by Xeryous Rouge by Givenchy. Features spicy chili and fresh citrus over an aromatic heart of cedar and tarragon, finishing on warm amber and exotic woods. Oil-rich and long-lasting, it’s a bold, sophisticated scent for the modern man who leads with strength, style, and confidence.',
+   volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
+  },
+  {
+    id:16,
+    image : leather_spice,
+    name: 'Sauvage Blast',
+    notes: 'Inspired by Dior Sauvage. A bold, oil-rich blend of fresh bergamot, spicy pepper, lavender, and warm woods, finishing with amber and musk. Fresh and long-lasting, it’s made for the modern man who exudes quiet confidence.',
+    volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
+  },
+{
+   id:17,
+    image : oud_wood,
+    name: 'Scented Oud',
+    notes: 'Inspired by Tom Ford’s Oud Wood. It is a refined blend of warm oud, soft spices, and creamy woods — exotic yet elegant. Rich, oil-based, and long-lasting, it’s a unisex fragrance of understated luxury with a quiet, confident presence.',
+    volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
+},
+{
+  id:18,
+    image : oud_wood,
+    name: 'Shay Bloom',
+    notes: 'is a bold yet elegant scent, opening with fresh citrus and fruits, balanced by soft florals and rich woods. A smooth blend of musk and amber lingers, creating a warm, long-lasting finish for those who command attention with effortless sophistication.',
+    volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
+},
+{
+  id:19,
+  image : juicy_flame,
+  name: 'Silent Overture',
+  notes: 'Mysterious and powerful, Silent Overture is elegance in quiet strength.',
+  volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
+},
+  {
+id:20,
+    image: enchanting,
+    name: 'Smokey Intensive',
+    notes: 'Inspired by Gucci Intense Oud.It is a bold take on Gucci Intense Oud, blending smoky spice with rich oud, amber, and incense for a dark, luxurious scent. Long-lasting and refined, it’s perfect for anyone who embraces mystery and elegance.',
+    volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
+},
+{
+    id:21,
+    image : oud_wood,
+    name: 'Urban Crisps',
+    notes: 'Inspired by Tommy by Tommy Hilfiger. It opens with crisp citrus, apple, and mint, layered over soft florals and grounded in warm woody notes. Clean, youthful, and effortlessly stylish, for everyday wear that captures confidence, freedom, and laid-back urban charm.',
+    volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
+  },
+{
+    id:22,
+    image : oud_wood,
+    name: 'Velour Oud',
+    notes: 'Inspired by Oud Satin Mood & Baccarat Rouge, blends soft florals, warm oud, amber, vanilla, and saffron. Smooth, seductive, and oil-rich, it leaves a silky, long-lasting trail of mystery and luxury.',
+    volumes: ["30ml", "50ml", "100ml"],
+    prices: [10000, 15000, 30000]
   }
 ];
+
+
+
+
+
+
+
+
 

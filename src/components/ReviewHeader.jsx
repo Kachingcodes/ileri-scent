@@ -84,7 +84,7 @@ const ReviewHeader = () => {
                     <FaHome size={19} className="dark:text-white text-black" />
                   </div>
                 </div>
-                <span className="ml-2">Home</span>
+                <span className="ml-2 hover:text-amber-500">HOME</span>
               </button>
             </div>
 
@@ -95,7 +95,7 @@ const ReviewHeader = () => {
                     <GiShoppingCart  size={19} className="dark:text-white text-black" />
                   </div>
                 </div>
-                <span className="ml-2">SHOP</span>
+                <span className="ml-2 hover:text-amber-500">SHOP</span>
               </button>
             </div>
 

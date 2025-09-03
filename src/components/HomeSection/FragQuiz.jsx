@@ -48,7 +48,7 @@ const quizQuestions = [
 
 const resultsMapping = {
   Floral: {
-    perfumes: ["Fruity Cherry", "Tommy Signature", "Citrus blossom"],
+    perfumes: ["Fruity Cherry", "Civelle Signature", "Citrus blossom"],
     pairsWellWith: [
       "Citrus Veil ",
       "Golden Flair",

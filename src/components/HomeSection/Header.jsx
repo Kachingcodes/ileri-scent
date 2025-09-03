@@ -108,7 +108,7 @@ const scrollToSection = (id) => {
                     <GiShoppingCart size={19} className="dark:text-white text-black" />
                   </div>
                 </div>
-                <span className="ml-2">SHOP</span>
+                <span className="ml-2 hover:text-amber-500">SHOP</span>
               </button>
             </div>
 
@@ -119,7 +119,7 @@ const scrollToSection = (id) => {
                     <MdOutlineReviews  size={19} className="dark:text-white text-black" />
                   </div>
                 </div>
-                <span className="ml-2">REVIEWS</span>
+                <span className="ml-2 hover:text-amber-500">REVIEWS</span>
               </button>
             </div>
 

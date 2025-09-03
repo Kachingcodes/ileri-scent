@@ -18,7 +18,7 @@ const Wanted = () => {
           BESTSELLERS
         </motion.h1>
 
-        <div>
+        <div className="w-[90%]">
           <PerfumeCarousel/>
         </div>
 
