@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import FixedTop from "../ShopSection/FixedTop"; 
 import ProductCard from "../ShopSection/ProductCard"; 
 import CartModal from "../ShopSection/CartModal";
@@ -28,8 +29,8 @@ const Store = ({ category }) => {
   const addToCart = () => {
     if (!selectedVolume) return;
 
-const index = selectedProduct.volumes.indexOf(selectedVolume);
-    const price = `₦${selectedProduct.prices[index].toLocaleString()}`;
+  const index = selectedProduct.volumes.indexOf(selectedVolume);
+  const price = `₦${selectedProduct.prices[index].toLocaleString()}`;
 
     const newItem = {
       name: selectedProduct.name,
@@ -41,6 +42,8 @@ const index = selectedProduct.volumes.indexOf(selectedVolume);
 
     setCartItems((prev) => [...prev, newItem]);
     setSelectedVolume("");
+
+      toast.success(`${selectedProduct.name} added to cart!`);
   };
 
    const productOptions =
@@ -55,6 +58,7 @@ const index = selectedProduct.volumes.indexOf(selectedVolume);
 
   return (
     <div className="flex flex-col md:flex-row w-full gap-2">
+
   {/* FixedTop (on small screens only) */}
   <div className="md:hidden sticky top-0 w-full bg-black flex flex-col items-center justify-center p-2 z-50">
 
@@ -103,6 +107,9 @@ const index = selectedProduct.volumes.indexOf(selectedVolume);
 
     {/* Bottom (desktop details) */}
     <div className="h-[70%] bg-gray-100 flex flex-col items-center justify-start p-4 gap-4 overflow-y-auto w-full">
+      
+        <Toaster position="bottom-right mb-20" reverseOrder={false} />
+
       {selectedProduct ? (
         <div className="w-full flex flex-col ">
           
@@ -179,6 +186,8 @@ const index = selectedProduct.volumes.indexOf(selectedVolume);
 
     {/* Drawer */}
     <div className="fixed bottom-0 left-0 w-full bg-white shadow-2xl rounded-t-2xl p-4 z-50 md:hidden min-h-[70vh] overflow-y-auto animate-slideUp">
+        
+        <Toaster position="top-center mt-10" reverseOrder={false} />
       <div className="flex justify-between items-center mb-2">
         <h2 className="font-bold text-xl">{selectedProduct.name}</h2>
         <button onClick={() => setSelectedProduct(null)} className="text-gray-500 font-bold">✕</button>
