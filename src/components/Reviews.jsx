@@ -10,7 +10,7 @@ const Reviews = () => {
 
   return (
     <div
-      className="relative w-full min-h-screen bg-contain bg-center bg-repeat transition-colors duration-500 bg-[#babbd6] dark:bg-[#05060b]"
+      className="relative w-full py-26 bg-contain bg-center bg-repeat transition-colors duration-500 bg-white dark:bg-[#05060b]"
       style={{ backgroundImage: `url(${review_bg2})` }}
     >
       
@@ -18,8 +18,8 @@ const Reviews = () => {
         <ReviewHeader />
       </div>
 
-        <div className="pt-40 px-6">
-            <div className="gap-3 md:gap-6 p-1 md:p-4 grid grid-cols-2 
+        <div className="px-2">
+            <div className="gap-3 md:gap-5 p-1 md:p-4 grid grid-cols-2 
                             sm:grid-cols-2 
                             md:grid-cols-3 
                             lg:grid-cols-4">
