@@ -1,71 +1,53 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { wantedData } from "../../data/wantedData";
 
 const PerfumeCarousel = () => {
   const navigate = useNavigate();
-  const trackRef = useRef(null);
+  const scrollRef = useRef(null);
 
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
+  // Duplicate data to create seamless loop
+  const loopedData = [...wantedData, ...wantedData];
 
-  const goToShop = () => navigate("/shop");
+  // Reset scroll when reaching either end
+  useEffect(() => {
+    const container = scrollRef.current;
 
-  // --- Drag Handlers ---
-  const handleMouseDown = (e) => {
-    setIsDragging(true);
-    setStartX(e.pageX - trackRef.current.offsetLeft);
-    setScrollLeft(trackRef.current.scrollLeft);
-    trackRef.current.style.animationPlayState = "paused"; // stop auto scroll
-  };
+    const handleScroll = () => {
+      const scrollWidth = container.scrollWidth / 2;
+      if (container.scrollLeft >= scrollWidth) {
+        container.scrollLeft = container.scrollLeft - scrollWidth;
+      } else if (container.scrollLeft <= 0) {
+        container.scrollLeft = container.scrollLeft + scrollWidth;
+      }
+    };
 
-  const handleMouseLeave = () => setIsDragging(false);
-  const handleMouseUp = () => {
-    setIsDragging(false);
-    trackRef.current.style.animationPlayState = "running"; // resume auto scroll
-  };
-
-  const handleMouseMove = (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - trackRef.current.offsetLeft;
-    const walk = (x - startX) * 2; // drag sensitivity
-    trackRef.current.scrollLeft = scrollLeft - walk;
-  };
+    container.addEventListener("scroll", handleScroll);
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <div className="overflow-hidden py-20 w-full">
-      <div
-        ref={trackRef}
-        className="carousel-track flex animate-scroll gap-8"
-        onMouseDown={handleMouseDown}
-        onMouseLeave={handleMouseLeave}
-        onMouseUp={handleMouseUp}
-        onMouseMove={handleMouseMove}
-        style={{ cursor: isDragging ? "grabbing" : "grab" }}
-      >
-        {[...wantedData, ...wantedData].map((item, index) => (
+    <div className="w-full overflow-x-auto scrollbar-hide" ref={scrollRef}>
+      <div className="flex gap-8 px-4 py-18 md:py-22">
+        {loopedData.map((item, index) => (
           <div
             key={index}
-            className="relative min-w-[200px] md:min-w-[250px] flex-shrink-0 rounded-xl shadow-lg p-6 pt-16 bg-white/2 dark:bg-white/8"
+            className="relative flex-shrink-0 min-w-[160px] md:min-w-[220px] rounded-xl shadow-lg p-6 pt-16 bg-white/80 dark:bg-white/10"
           >
-            {/* Floating image */}
-            <div className="absolute -top-10 left-1/2 -translate-x-1/2">
+            <div className="absolute -top-14 left-1/2 -translate-x-1/2">
               <img
                 src={item.image}
                 alt={item.name}
-                className="w-36 h-40 object-contain mx-auto drop-shadow-xl transition-transform duration-300 group-hover:scale-105"
+                className="w-36 h-40 object-contain mx-auto drop-shadow-xl transition-transform duration-300 hover:scale-105"
                 loading="lazy"
               />
             </div>
 
-            {/* Text content */}
-            <div className="text-center mt-16">
+            <div className="text-center mt-10 md:mt-16">
               <h3 className="font-bold">{item.name}</h3>
               <button
-                onClick={goToShop}
-                className="mt-2 inline-block bg-white dark:bg-[#d39c44] text-[#0b0f1c] font-semibold px-4 py-2 rounded-full hover:dark: hover:bg-gray-100 hover:dark:bg-[#e8d6be] transition"
+                onClick={() => navigate("/shop")}
+                className="mt-2 inline-block bg-white dark:bg-[#d39c44] text-[#0b0f1c] font-semibold px-4 py-2 rounded-full hover:bg-gray-100 hover:dark:bg-[#e8d6be] transition"
               >
                 Order
               </button>
@@ -74,16 +56,15 @@ const PerfumeCarousel = () => {
         ))}
       </div>
 
-      {/* Keyframes for infinite scroll */}
+      {/* Hide scrollbar */}
       <style>
         {`
-          @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+          .scrollbar-hide::-webkit-scrollbar {
+            display: none;
           }
-          .animate-scroll {
-            animation: scroll 50s linear infinite;
-            width: max-content;
+          .scrollbar-hide {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
           }
         `}
       </style>
