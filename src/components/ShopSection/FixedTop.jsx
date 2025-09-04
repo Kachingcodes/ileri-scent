@@ -23,31 +23,31 @@ const FixedTop = ({ openModal, setSearchItem, cartCount }) => {
   };
 
   return (
-    <div className="w-full  text-white p-4 md:p-6 flex flex-col items-center gap-4">
+    <div className="w-full bg-black dark:bg-white p-4 md:p-6 flex flex-col items-center gap-4">
       <div className="flex flex-col md:flex-col items-center justify-between gap-3 w-full">
 
         <div className="flex flex-col gap-2 text-center md:text-left">
           
-          <p className="text-xs text-amber-400">
-            (Disclaimer: Bottles may be different from the images on the site)
+          <p className="text-xs text-amber-400 dark:text-black">
+            (Disclaimer: Bottles may be different from the images on the site but the product remains the same)
           </p>
         </div>
 
         <div className="flex flex-col items-center md:items-start gap-3 w-full">
           {/* Search Input */}
-          <div className="flex w-full  h-8 items-center gap-2 border border-amber-400 rounded-full px-4 py-2 bg-white/8 shadow-sm focus-within:ring-1 focus-within:ring-yellow-200 transition-all">
-            <IoSearchSharp className="text-gray-300 text-xl" />
+          <div className="flex w-full  h-8 items-center gap-2 border border-[#f9c87f] dark:border-[#d39c44] rounded-full px-4 py-2 bg-white/8 shadow-sm focus-within:ring-1 focus-within:ring-yellow-200 transition-all">
+            <IoSearchSharp className="text-gray-300 text-xl dark:text-black" />
             <input
               type="text"
               placeholder="Search by name, volume, or price"
               value={input}
               onChange={handleSearch}
-              className="w-full outline-none bg-transparent text-sm text-white placeholder-gray-400"
+              className="w-full outline-none bg-transparent text-sm text-white placeholder-gray-400 dark:placeholder-gray-600"
             />
           </div>
 
           {/* Icons */}
-          <div className="flex flex-row gap-6 md:gap-8 relative mt-2">
+          <div className="flex flex-row gap-6 md:gap-8 relative mt-2 text-white dark:text-black">
             <FaHome className="text-xl md:text-2xl cursor-pointer" onClick={goToHome} />
             <div className="relative cursor-pointer" onClick={openModal}>
               <MdAddShoppingCart className="text-xl md:text-2xl" />
