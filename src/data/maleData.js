@@ -178,7 +178,7 @@ export const maleData = [
   id:21,
     image : male6,
     name: 'Shay Bloom',
-    notes: 'is a bold yet elegant scent, opening with fresh citrus and fruits, balanced by soft florals and rich woods. A smooth blend of musk and amber lingers, creating a warm, long-lasting finish for those who command attention with effortless sophistication.',
+    notes: 'A bold yet elegant scent, opening with fresh citrus and fruits, balanced by soft florals and rich woods. A smooth blend of musk and amber lingers, creating a warm, long-lasting finish for those who command attention with effortless sophistication.',
     volumes: ["30ml", "50ml", "100ml"],
     prices: [10000, 15000, 30000]
 },
@@ -191,7 +191,7 @@ export const maleData = [
   prices: [10000, 15000, 30000]
 },
   {
-  id:23,
+    id:23,
     image: male5,
     name: 'Smokey Intensive',
     notes: 'Inspired by Gucci Intense Oud.It is a bold take on Gucci Intense Oud, blending smoky spice with rich oud, amber, and incense for a dark, luxurious scent. Long-lasting and refined, it’s perfect for anyone who embraces mystery and elegance.',

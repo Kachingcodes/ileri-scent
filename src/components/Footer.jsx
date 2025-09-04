@@ -7,14 +7,23 @@ import logo from "../img/logo.png";
 const Footer = () => {
   return (
     <section id="contact">
-      <div className="bg-[#050008] text-white px-6 py-8 sm:px-10 md:px-16 lg:px-24">
-
+      <div className="bg-[#050008] text-white px-4 py-6 sm:px-10 lg:px-24">
         <div className="max-w-screen-xl mx-auto flex flex-col sm:flex-col md:flex-row justify-between items-center gap-6">
           
           {/* Left Section */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <a href="/">
-              <img src={logo} alt="Ileri Scent Logo" className="w-10 mb-3 md:ml-16" />
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault(); // Use to prevent reload
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+            >
+              <img
+                src={logo}
+                alt="Ileri Scent Logo"
+                className="w-10 mb-3 md:ml-16 cursor-pointer"
+              />
             </a>
             <span className="text-sm">© 2025. All Rights Reserved.</span>
           </div>

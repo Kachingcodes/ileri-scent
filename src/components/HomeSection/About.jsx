@@ -31,7 +31,7 @@ const About = () => {
           </motion.h2>
 
           <motion.p
-            className="mb-4 text-md md:text-lg leading-relaxed text-gray-200"
+            className="mb-4 text-md md:text-lg leading-relaxed dark:text-gray-200"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -44,7 +44,7 @@ const About = () => {
           </motion.p>
 
           <motion.p
-            className="mb-4 text-md md:text-lg leading-relaxed text-gray-200"
+            className="mb-4 text-md md:text-lg leading-relaxed dark:text-gray-200"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false }}
@@ -59,7 +59,7 @@ const About = () => {
           </motion.p>
 
           <motion.p
-            className="text-md md:text-lg leading-relaxed text-gray-200"
+            className="text-md md:text-lg leading-relaxed dark:text-gray-200"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false }}

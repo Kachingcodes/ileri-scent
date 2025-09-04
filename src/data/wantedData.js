@@ -1,60 +1,71 @@
-import cherry from "../img/bottles/cherry1.jpg";
+import cherry2 from "../img/bottles/cherry2.png";
+import sign1 from "../img/bottles/sign1.png";
+import sign2 from "../img/bottles/sign2.png";
+import magnestic from "../img/bottles/sign3.png";
+import essential from "../img/bottles/sign4.png";
+import sign5 from "../img/bottles/sign5.png";
+import sign6 from "../img/bottles/sign6.png";
+import sign7 from "../img/bottles/sign7.png";
+import sign8 from "../img/bottles/sign8.png";
+import sign9 from "../img/bottles/sign9.png";
+
 
 
 export const wantedData = [
   {
-    image: cherry,
-    name: 'FRUITY CHERRY',
-    notes: "50ml - #15K"
-  },
-  {
-    image: cherry,
-    name: 'SHAY BLOOM',
-    notes:"50ml - #15K 50ml - #15K 50ml - #15K 50ml - #15K 50ml - #15K 50ml - #15K 50ml - #15K"
-  },
-  {
-    image : cherry,
-    name: 'CODED BOSS',
-    notes: "50ml - #15K"
-  },
-  {
-    image : cherry,
-    name: 'SCENTED OUD',
-    notes:"50ml - #15K"
-  },
-  {
-    image: cherry,
-    name: 'MAGNETIC RUSH',
-    notes:"50ml - #15K"
-  },
-  {
-    image: cherry,
-    name: "ESSENTIAL D'ILERI",
-    notes:"50ml - #15K"
-  },
-  {
-    image: cherry,
+    image: sign7,
     name: "CITRUS BLOSSOM",
-    notes:"50ml - #15K"
+    notes:"Female"
   },
   {
-    image: cherry,
-    name: "FRUITY PEA",
-    notes:"50ml - #15K"
-  },
-  {
-    image: cherry,
-    name: "SILKEN CODE",
-    notes:"50ml - #15K"
-  },
-  {
-    image: cherry,
+    image: sign5,
     name: "CIVELLE SIGNATURE",
-    notes:"50ml - #15K"
+    notes:"Female"
   },
   {
-    image: cherry,
+    image : sign1,
+    name: 'CODED BOSS',
+    notes: "Male"
+  },
+  {
+    image: essential,
+    name: "ESSENTIAL D'ILERI",
+    notes:"Male"
+  },
+  {
+    image: cherry2,
+    name: 'FRUITY CHERRY',
+    notes: "Female"
+  },
+  {
+    image: sign9,
+    name: "FRUITY PEA",
+    notes:"Female"
+  },
+  {
+    image: magnestic,
+    name: 'MAGNETIC RUSH',
+    notes:"Male"   
+  },
+  {
+    image : sign6,
+    name: 'SCENTED OUD',
+    notes:"Male"
+  },
+  {
+    image: sign7,
+    name: 'SHAY BLOOM',
+    notes:"Male"
+    
+  },
+  {
+    image: sign2,
+    name: "SILKEN CODE",
+    notes:"Female."
+  },
+  {
+    image: sign8,
     name: "SMOKEY INTENSIVE",
-    notes:"50ml - #15K"
+    notes:"Male"
   }
 ];

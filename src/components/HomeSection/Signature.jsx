@@ -35,10 +35,10 @@ const Signature = () => {
 
             {/* Description section shifted lower */}
             <div className="absolute inset-0 bg-[white]/2 dark:bg-[white]/8 flex flex-col justify-end p-1 md:p-2 text-right md:text-left">
-              <h3 className="text-xl font-semibold font-news">{item.title}</h3>
+              <h3 className="text-xl font-semibold font-news ">{item.title}</h3>
               <button 
                 onClick={() => navigate("/shop")}
-                className="md:mt-4 mt-2 mb-1 inline-block px-4 py-2 bg-white dark:bg-[#d39c44] text-black text-sm rounded-full shadow hover:bg-gray-100 hover:dark:bg-[#e8d6be] transition">
+                className="md:mt-4 mt-2 mb-1 inline-block px-4 py-2 bg-white dark:bg-[#d39c44] text-sm rounded-full shadow hover:bg-gray-100 hover:dark:bg-[#e8d6be] transition">
                 Explore
               </button>
             </div>

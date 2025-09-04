@@ -45,9 +45,10 @@ const PerfumeCarousel = () => {
 
             <div className="text-center mt-10 md:mt-16">
               <h3 className="font-bold">{item.name}</h3>
+              <p className="text-md">{item.notes}</p>
               <button
                 onClick={() => navigate("/shop")}
-                className="mt-2 inline-block bg-white dark:bg-[#d39c44] text-[#0b0f1c] font-semibold px-4 py-2 rounded-full hover:bg-gray-100 hover:dark:bg-[#e8d6be] transition"
+                className="mt-2 inline-block bg-white dark:bg-[#d39c44] text-[#0b0f1c] font-semibold px-4 py-2 rounded-full shadow-md hover:bg-gray-100 hover:dark:bg-[#e8d6be] transition"
               >
                 Order
               </button>
