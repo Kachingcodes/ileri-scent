@@ -1,19 +1,50 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { wantedData } from "../../data/wantedData";
 
 const PerfumeCarousel = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const trackRef = useRef(null);
 
-    const goToShop = () => {
-  navigate("/shop");
-};
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  const goToShop = () => navigate("/shop");
+
+  // --- Drag Handlers ---
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - trackRef.current.offsetLeft);
+    setScrollLeft(trackRef.current.scrollLeft);
+    trackRef.current.style.animationPlayState = "paused"; // stop auto scroll
+  };
+
+  const handleMouseLeave = () => setIsDragging(false);
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    trackRef.current.style.animationPlayState = "running"; // resume auto scroll
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - trackRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // drag sensitivity
+    trackRef.current.scrollLeft = scrollLeft - walk;
+  };
 
   return (
     <div className="overflow-hidden py-20 w-full">
-      <div className="carousel-track flex animate-scroll gap-8">
-        {/* Duplicate the items twice so it loops seamlessly */}
+      <div
+        ref={trackRef}
+        className="carousel-track flex animate-scroll gap-8"
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+        style={{ cursor: isDragging ? "grabbing" : "grab" }}
+      >
         {[...wantedData, ...wantedData].map((item, index) => (
           <div
             key={index}
@@ -32,9 +63,10 @@ const PerfumeCarousel = () => {
             {/* Text content */}
             <div className="text-center mt-16">
               <h3 className="font-bold">{item.name}</h3>
-              <button 
-                onClick={() => navigate("/shop")}
-                className="mt-2 inline-block bg-white dark:bg-[#d39c44] text-[#0b0f1c] font-semibold px-4 py-2 rounded-full hover:dark: hover:bg-gray-100 hover:dark:bg-[#e8d6be] transition">
+              <button
+                onClick={goToShop}
+                className="mt-2 inline-block bg-white dark:bg-[#d39c44] text-[#0b0f1c] font-semibold px-4 py-2 rounded-full hover:dark: hover:bg-gray-100 hover:dark:bg-[#e8d6be] transition"
+              >
                 Order
               </button>
             </div>
@@ -52,11 +84,6 @@ const PerfumeCarousel = () => {
           .animate-scroll {
             animation: scroll 50s linear infinite;
             width: max-content;
-          }
-          /* Pause on hover or touch */
-          .carousel-track:hover,
-          .carousel-track:active {
-            animation-play-state: paused;
           }
         `}
       </style>
