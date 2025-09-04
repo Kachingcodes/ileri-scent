@@ -44,7 +44,7 @@ useEffect(() => {
 
 
   return (
-    <div className="bg-white dark:bg-black dark:text-white text-black w-full flex flex-col items-center justify-start p-0 md:p-10 min-h-screen">
+    <div className="bg-white dark:bg-[#121111] dark:text-white text-black w-full flex flex-col items-center justify-start p-0 md:p-10 min-h-screen">
       <h1 className="text-center text-3xl sm:text-3xl md:text-4xl mt-8 md:mt-0 font-semibold tracking-wide font-playfair">CATEGORIES</h1>
     
       {/* CATEGORY CARDS */}
@@ -52,7 +52,7 @@ useEffect(() => {
 
         {/* MEN */}
         <motion.div
-          className="w-36 md:w-60 h-40 md:h-60 relative flex flex-col items-center justify-end p-2 rounded-2xl shadow-md/60 dark:shadow-md shadow-gray-300"
+          className="w-36 md:w-60 h-40 md:h-60 relative flex flex-col items-center justify-end p-2 rounded-2xl shadow-md/60 dark:shadow-md shadow-gray-700"
           initial="hiddenUp"
           whileInView="visible"
           transition={{ delay: 0.5, duration: 0.8 }}
@@ -72,7 +72,7 @@ useEffect(() => {
 
       {/* WOMEN */}
       <motion.div
-        className="w-36 md:w-60 h-40 md:h-60 relative flex flex-col items-center justify-end p-2 rounded-2xl shadow-md/60 dark:shadow-md shadow-gray-300"
+        className="w-36 md:w-60 h-40 md:h-60 relative flex flex-col items-center justify-end p-2 rounded-2xl shadow-md/60 dark:shadow-md shadow-gray-700"
         variants={card}
         initial="hiddenDown"
         whileInView="visible"
@@ -93,7 +93,7 @@ useEffect(() => {
 
       {/* DIFFUSERS */}
       <motion.div
-        className="w-36 md:w-60 h-40 md:h-60 relative flex flex-col items-center justify-end p-2 rounded-2xl mt-22 md:mt-0 shadow-md/60 dark:shadow-md shadow-gray-300"
+        className="w-36 md:w-60 h-40 md:h-60 relative flex flex-col items-center justify-end p-2 rounded-2xl mt-22 md:mt-0 shadow-md/60 dark:shadow-md shadow-gray-700"
         variants={card}
         initial="hiddenUp"
         whileInView="visible"

@@ -39,7 +39,7 @@ const ProductCard = ({ store, handleClick, openPurchasePanel }) => {
 
             {/* IMAGE */}
             <img
-                className="w-20 md:w-26 rounded-xl shadow-black shadow-xs"
+                className="w-20 md:w-50 rounded-xl shadow-black shadow-xs"
                 src={store.image}
                 alt={store.name}
                 loading="lazy"
