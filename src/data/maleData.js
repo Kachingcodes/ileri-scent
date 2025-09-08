@@ -52,7 +52,7 @@ export const maleData = [
     name: 'Elythra',
     notes: 'Inspired by Y by YSL. Confident. Modern. Unstoppable. Elythra is a fragrance of clarity and strength for those who carve their own path. Fresh aromatics ignite the senses, while deep woods anchor it in quiet power. Bold yet balanced, it’s a statement of ambition and the essence of living without limits.',
     volumes: ["50ml", "100ml"],
-    prices: [25000, 30000]
+    prices: [25000, 50000]
   },        
   {
     id:6,
@@ -60,7 +60,7 @@ export const maleData = [
     name: 'Elythra Live',
     notes: 'Inspired by YSL live. It is electric and fearless—a fragrance that pulses with energy. Bright citrus sparks the senses, bold florals and spices add intensity, and a smooth base grounds it in sensuality. Modern yet timeless, it celebrates passion, movement, and living out loud.',
     volumes: ["50ml", "100ml"],
-    prices: [25000, 30000]
+    prices: [25000, 50000]
   },
 {
     id:7,
